@@ -1,0 +1,281 @@
+/* Establecer un gradiente de fondo para la página */
+body {
+    background-image: linear-gradient(to right, #A2214B, #00529F);
+    background-size: cover;
+    /* Asegura que el gradiente cubra toda la página */
+    background-position: center;
+    /* Centra el gradiente */
+    height: 100vh;
+    /* Asegura que el fondo cubra toda la altura de la ventana */
+    margin: 0;
+    /* Elimina márgenes por defecto */
+    color: #ffffff !important;
+
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    /* Asegura que el navbar quede por encima de otros elementos */
+    background-color: #A2214B;
+    /* Asegúrate de mantener el color de fondo */
+}
+
+/* Cambiar color de texto de los enlaces en el menú */
+.navbar-nav .nav-link {
+    color: #ffffff !important;
+}
+
+/* Cambiar color al pasar el ratón por encima */
+.navbar-nav .nav-link:hover {
+    color: #DEB405 !important;
+}
+
+/* Cambiar el color de fondo del menú desplegable */
+.dropdown-menu {
+    background-color: #A2214B !important;
+    /* El mismo color de fondo que el navbar */
+}
+
+/* Cambiar el color de las fuentes de los elementos del menú desplegable a dorado */
+.dropdown-menu .dropdown-item {
+    background-color: #A2214B !important;
+    /* Fondo igual que el navbar */
+    color: #ffffff !important;
+    /* Texto dorado */
+}
+
+/* Cambiar el color de las fuentes a blanco cuando el ratón pasa por encima, manteniendo el fondo */
+.dropdown-menu .dropdown-item:hover {
+    color: #DEB405 !important;
+    /* Texto blanco al pasar el ratón */
+    background-color: #A2214B !important;
+    /* Mantener el fondo igual al pasar el ratón */
+}
+
+.icon-link {
+    display: flex;
+    align-items: center;
+    color: white;
+    /* Color dorado del icono y texto */
+    text-decoration: none;
+    /* Elimina el subrayado */
+}
+
+.icon-link:hover {
+    color: #DEB405;
+    /* Cambiar a blanco al pasar el ratón */
+}
+
+.icon-link i {
+    font-size: 1.5rem;
+    /* Tamaño del icono */
+    margin-right: 5px;
+    /* Espacio entre icono y texto */
+}
+
+/* Espaciado entre elementos del navbar derecho */
+.navbar-nav.ms-auto>.nav-item+.nav-item {
+    margin-left: 20px;
+}
+
+/* Estilo del botón Buscar */
+.btn-outline-light {
+    color: #DEB405;
+    /* Color dorado del texto por defecto */
+    border-color: #DEB405;
+    /* Borde dorado */
+}
+
+/* Estilo por defecto del botón Buscar */
+.btn-outline-light {
+    color: #DEB405;
+    /* Color dorado del texto por defecto */
+    border-color: #DEB405;
+    /* Borde dorado */
+    transition: all 0.3s ease;
+    /* Suaviza las transiciones al hacer hover */
+}
+
+/* Cambiar color al hacer hover */
+.btn-outline-light:hover {
+    color: #ffffff !important;
+    /* Cambia el texto a blanco */
+    background-color: #DEB405 !important;
+    /* Cambia el fondo a dorado */
+    border-color: #DEB405 !important;
+    /* Mantiene el borde dorado */
+}
+
+/* DESPUES DE NAV */
+.firma {
+    font-family: 'Dancing Script', 'Pacifico', 'Brush Script MT';
+    font-size: 5.5rem;
+    /*Ajusta el tamaño según lo necesites */
+    color: #DEB405;
+    /* Ejemplo de color dorado */
+    text-align: center;
+    /* Alineación del texto */
+}
+
+p {
+    text-align: center;
+    color: #ffffff;
+    max-width: 80vw;
+    margin: 0 auto;
+    /* Centra el párrafo horizontalmente */
+}
+
+h1 {
+    font-size: 3.5rem;
+    /*Ajusta el tamaño según lo necesites */
+    color: #DEB405 !important;
+    /* Ejemplo de color dorado */
+    text-align: center;
+    /* Alineación del texto */
+}
+
+/*CARROUSEL*/
+
+/* Ajuste del tamaño del carrusel */
+#carouselExample {
+    width: 80%;
+    /* El carrusel ocupa un 80% del ancho de su contenedor */
+    max-width: 1000px;
+    /* Máximo tamaño de ancho para evitar que se estire mucho */
+    height: 60vh;
+    /* Ocupa un 60% de la altura de la ventana */
+    margin: 0 auto;
+    /* Centrado en la página */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ajustes para las imágenes dentro del carrusel */
+.carousel-inner .carousel-item img {
+    width: 70%;
+    height: 50vh;
+    object-fit: contain;
+    /* Hace que la imagen se ajuste sin perder la proporción */
+}
+
+/*Tabla*/
+.table-container {
+    max-width: 80vw;
+    margin: 0 auto;
+
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    /* Ajusta este valor según lo que necesites para reducir el espacio */
+}
+
+.login img {
+    width: 40vw;
+    height: 35vh;
+    object-fit: cover;
+    display: block;
+    /* Asegura que la imagen se trate como un bloque */
+    margin: 0;
+    /* Elimina cualquier margen automático */
+    margin-bottom: 2.5%;
+    padding: 0;
+    /* Elimina cualquier padding que pueda estar aplicado */
+}
+
+.uniform-size {
+    width: 80%;
+    /* Ajusta al 80% del tamaño del contenedor */
+    max-width: 300px;
+    /* Tamaño máximo en píxeles */
+    height: auto;
+    /* Mantiene la proporción */
+}
+
+/* Modal - Estilo básico */
+div div div p {
+    text-align: center;
+    color: #FFEB3B;
+}
+
+#modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    /* Ancho completo de la ventana */
+    height: 100vh;
+    /* Alto completo de la ventana */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro semitransparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+}
+
+#modal:target {
+    display: flex;
+}
+
+.modal-content {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white;
+    /* Fondo blanco */
+    width: 30vw;
+    /* Ancho */
+    height: auto;
+    /* Alto automático para adaptarse al contenido */
+    max-height: 80vh;
+    /* Máximo alto para evitar que se salga de la pantalla */
+    color: black;
+    /* Color de las letras */
+    overflow-y: auto;
+    /* Para permitir desplazamiento si el contenido es muy largo */
+}
+
+.modal-header,
+.modal-body,
+.modal-footer {
+    margin: 0;
+    padding: 0;
+    color: black;
+    /* Color de las letras */
+}
+
+.modal-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.modal-footer {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.close-btn:hover {
+    text-decoration: underline;
+}
+
+.card-text#blanco {
+    color: white !important;
+}
+
