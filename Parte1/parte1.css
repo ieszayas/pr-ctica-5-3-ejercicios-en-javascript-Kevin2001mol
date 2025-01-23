@@ -185,7 +185,16 @@ h1 {
 #modal-content {
     background-color: transparent !important; /* Fondo transparente para el contenido */
 }
+.search-container {
+    display: flex; /* Usar flexbox para centrar */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente si es necesario */
+    height: 20vh; /* Opcional: para centrar verticalmente en toda la página */
+}
 
+form {
+    width: 20%; /* Establecer el ancho del formulario al 20% */
+}
 /*Tabla*/
 .table-container {
     max-width: 80vw;
