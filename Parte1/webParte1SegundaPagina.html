@@ -266,7 +266,10 @@
         // Evento para limpiar los datos del formulario
         btnLimpiar.addEventListener('click', () => {
             formulario.reset();
+
             const campos = [nombre, password, email, birthdate];
+            const toastEnviar = new bootstrap.Toast(document.getElementById('toastLimpiar'));
+                toastEnviar.show();
             campos.forEach(campo => {
                 campo.classList.remove('is-valid', 'is-invalid');
                 campo.nextElementSibling.textContent = '';
