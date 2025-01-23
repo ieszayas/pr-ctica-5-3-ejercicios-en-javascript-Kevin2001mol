@@ -80,9 +80,9 @@
         <img src="../media/SerCuler.webp" class="img-thumbnail"
             alt="Raphina, Lewandowsky y Lamine con la Supercopa de España">
     </div>
-    <!--FORMULARIO-->
+    <!-- FORMULARIO -->
     <div class="container d-flex justify-content-center mt-5">
-        <form class="needs-validation" style="width: 60%;" validate>
+        <form id="formulario" class="needs-validation" style="width: 60%;" novalidate>
             <!-- Email -->
             <div class="mb-3">
                 <label for="email" class="form-label">Correo Electrónico</label>
@@ -93,11 +93,10 @@
             </div>
             <!-- Nombre -->
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                <input class="form-control" pattern="[a-zA-Z]+" required>
-
+                <label for="nombre" class="form-label">Nombre</label>
+                <input id="nombre" class="form-control" pattern="[a-zA-Z]+" required>
             </div>
-
+            <!-- Contraseña -->
             <div class="mb-3">
                 <label for="password" class="form-label">Contraseña</label>
                 <input type="password" class="form-control" id="password" placeholder="Solo letras (5-15 caracteres)"
@@ -110,30 +109,37 @@
             <div class="mb-3">
                 <label for="birthdate" class="form-label">Fecha de Nacimiento</label>
                 <input type="date" class="form-control" id="birthdate" max="2007-01-14" required>
-                <!-- <div class="invalid-feedback"> Este mensaje no lo pone pq pone uno default el sistema
-              Debes ser mayor de 18 años para registrarte.
             </div>
-          </div> -->
-                <br>
-                <!-- soy socio -->
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="terms" required>
-                    <label class="form-check-label" for="terms">Soy socio</label>
-                    
+            <!-- Soy socio -->
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="socio">
+                <label class="form-check-label" for="socio">Soy socio</label>
+            </div>
+            <!-- Aceptar términos y condiciones -->
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="terms" required>
+                <label class="form-check-label" for="terms">Acepto los <a href="#">términos y condiciones</a></label>
+                <div class="invalid-feedback">
+                    Debes aceptar los términos y condiciones para continuar.
                 </div>
-
-                <!-- Aceptar términos y condiciones -->
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="terms" required>
-                    <label class="form-check-label" for="terms">Acepto los <a href="#modal">términos y
-                            condiciones</a></label>
-                    <div class="invalid-feedback">
-                        Debes aceptar los términos y condiciones para continuar.
-                    </div>
-                </div>
-                <!-- Botón -->
-                <button class="btn btn-primary" type="submit">Enviar</button>
+            </div>
+            <!-- Botones -->
+            <button class="btn btn-primary" type="submit">Enviar</button>
+            <button class="btn btn-secondary" type="button" id="btnLimpiar">Limpiar datos</button>
         </form>
+    </div>
+    <!-- Toast para notificación -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="toastLimpiar" class="toast align-items-center text-bg-success border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Los campos del formulario han sido limpiados.
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
     </div>
 
     <!-- Modal - Ventana emergente -->
@@ -154,4 +160,20 @@
     </div>
 
     <br><br><br>
+    <script>
+        // Obtener elementos del DOM
+        const formulario = document.getElementById('formulario');
+        const btnLimpiar = document.getElementById('btnLimpiar');
+        const toastLimpiar = document.getElementById('toastLimpiar');
+
+        // Escuchar el evento de clic del botón "Limpiar datos"
+        btnLimpiar.addEventListener('click', () => {
+            // Limpiar los campos del formulario
+            formulario.reset();
+
+            // Mostrar la notificación (toast)
+            const toast = new bootstrap.Toast(toastLimpiar);
+            toast.show();
+        });
+    </script>
 </body>
