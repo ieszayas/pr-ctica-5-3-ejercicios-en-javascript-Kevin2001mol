@@ -162,6 +162,30 @@ h1 {
     object-fit: contain;
     /* Hace que la imagen se ajuste sin perder la proporción */
 }
+/* Estilos para la imagen en el modal */
+#modalImage {
+    max-width: 120vw; /* Establece el ancho máximo al 50% */
+    margin: 0 auto; /* Centra la imagen */
+    display: block; /* Asegura que la imagen se comporte como un bloque */
+}
+
+/* Estilo para centrar el modal en la pantalla */
+.modal-dialog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Asegura que el modal se alinee verticalmente */
+}
+
+.modal-content {
+    width: 100%; /* Asegura que el modal ocupe todo el ancho disponible */
+}
+
+/* Fondo transparente para el modal */
+#modal-content {
+    background-color: transparent !important; /* Fondo transparente para el contenido */
+}
+
 
 /*Tabla*/
 .table-container {
