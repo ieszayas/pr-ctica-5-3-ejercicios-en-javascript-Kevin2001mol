@@ -137,11 +137,18 @@
                     Debes aceptar los términos y condiciones para continuar.
                 </div>
             </div>
+            <!-- Reloj digital -->
+            <div class=" mt-4">
+                <h2 id="digitalClock">
+                  Te quedan 00:00:00 para poder aprovecharte de descuentos exclusivos al registrarte
+              </div>
             <!-- Botones -->
             <button class="btn btn-primary" type="submit" id="btnEnviar">Enviar</button>
             <button class="btn btn-secondary" type="button" id="btnLimpiar">Limpiar datos</button>
         </form>
     </div>
+    
+    
     <!-- Progress-Bar 
     <div id="progressBar">
         <div class="bar"></div>
@@ -324,33 +331,37 @@
         email.addEventListener('input', validarEmail);
         birthdate.addEventListener('input', validarFechaNacimiento);
         //RELOJ
+        function updateCountdown() {
+            const now = new Date();
+            const dayOfWeek = now.getDay();
+            const nextWednesday = new Date();
+            const daysToWednesday = (3 - dayOfWeek + 7) % 7 || 7; // Calcula días restantes hasta miércoles
 
-        function progress(timeleft, timetotal, $element) {
-            var progressBarWidth = (timeleft / timetotal) * $element.width();  // Calcular el ancho según el porcentaje
-            var minutes = Math.floor(timeleft / 60);  // Calcular los minutos
-            var seconds = timeleft % 60;  // Calcular los segundos
+            nextWednesday.setDate(now.getDate() + daysToWednesday);
+            nextWednesday.setHours(14, 0, 0, 0);
 
-            // Actualizar la barra de progreso y el texto dentro de ella
-            $element.find('.bar').animate({ width: progressBarWidth }, 500).html(padNumber(minutes) + ":" + padNumber(seconds));
-
-            // Si el tiempo no ha llegado a cero, seguir la cuenta atrás
-            if (timeleft > 0) {
-                setTimeout(function () {
-                    progress(timeleft - 1, timetotal, $element);  // Llamada recursiva
-                }, 1000);
+            if (nextWednesday.getTime() <= now.getTime()) {
+                nextWednesday.setDate(nextWednesday.getDate() + 7);
             }
-        }
 
-        // Función para agregar ceros en el formato 00:00
-        function padNumber(number) {
-            return number < 10 ? "0" + number : number;
-        }
+            const diff = nextWednesday - now;
 
-        // Iniciar la cuenta atrás de 10 minutos (600 segundos)
-        $(document).ready(function () {
-            progress(600, 600, $('#progressBar'));  // 600 segundos = 10 minutos
-        });
+            const hours = String(
+                Math.floor((diff / (1000 * 60 * 60)) % 24)
+            ).padStart(2, "0");
+            const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(
+                2,
+                "0"
+            );
+            const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, "0");
 
+            document.getElementById(
+                "digitalClock"
+            ).textContent = `Te quedan ${hours}:${minutes}:${seconds}  para poder aprovecharte de descuentos exclusivos al registrarte`;
+        } 
+
+        setInterval(updateCountdown, 1000); // Actualizar cada segundo
+        updateCountdown(); // Llamar inmediatamente para inicializar
     </script>
 
 </body>
