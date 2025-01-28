@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 </head>
 
 <body>
@@ -129,7 +130,9 @@
             <!-- Aceptar términos y condiciones -->
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="terms" required>
-                <label class="form-check-label" for="terms">Acepto los <a href="https://support.fcbarcelona.com/faq/s/article/FCB-000659?language=es">términos y condiciones</a></label>
+                <label class="form-check-label" for="terms">Acepto los <a
+                        href="https://support.fcbarcelona.com/faq/s/article/FCB-000659?language=es">términos y
+                        condiciones</a></label>
                 <div class="invalid-feedback">
                     Debes aceptar los términos y condiciones para continuar.
                 </div>
@@ -139,8 +142,16 @@
             <button class="btn btn-secondary" type="button" id="btnLimpiar">Limpiar datos</button>
         </form>
     </div>
+    <!-- Progress-Bar 
+    <div id="progressBar">
+        <div class="bar"></div>
+    </div>
 
 
+    <a href="http://stackoverflow.com/q/24530908/1238019" class="solink" target="_blank">Div CSS Transition
+        Direction</a>
+
+    -->
 
     <!-- Toast para notificaciones -->
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
@@ -269,7 +280,7 @@
 
             const campos = [nombre, password, email, birthdate];
             const toastEnviar = new bootstrap.Toast(document.getElementById('toastLimpiar'));
-                toastEnviar.show();
+            toastEnviar.show();
             campos.forEach(campo => {
                 campo.classList.remove('is-valid', 'is-invalid');
                 campo.nextElementSibling.textContent = '';
@@ -312,6 +323,34 @@
         password.addEventListener('input', validarPassword);
         email.addEventListener('input', validarEmail);
         birthdate.addEventListener('input', validarFechaNacimiento);
+        //RELOJ
+
+        function progress(timeleft, timetotal, $element) {
+            var progressBarWidth = (timeleft / timetotal) * $element.width();  // Calcular el ancho según el porcentaje
+            var minutes = Math.floor(timeleft / 60);  // Calcular los minutos
+            var seconds = timeleft % 60;  // Calcular los segundos
+
+            // Actualizar la barra de progreso y el texto dentro de ella
+            $element.find('.bar').animate({ width: progressBarWidth }, 500).html(padNumber(minutes) + ":" + padNumber(seconds));
+
+            // Si el tiempo no ha llegado a cero, seguir la cuenta atrás
+            if (timeleft > 0) {
+                setTimeout(function () {
+                    progress(timeleft - 1, timetotal, $element);  // Llamada recursiva
+                }, 1000);
+            }
+        }
+
+        // Función para agregar ceros en el formato 00:00
+        function padNumber(number) {
+            return number < 10 ? "0" + number : number;
+        }
+
+        // Iniciar la cuenta atrás de 10 minutos (600 segundos)
+        $(document).ready(function () {
+            progress(600, 600, $('#progressBar'));  // 600 segundos = 10 minutos
+        });
+
     </script>
 
 </body>

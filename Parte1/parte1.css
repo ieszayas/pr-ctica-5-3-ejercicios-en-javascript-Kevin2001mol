@@ -155,6 +155,12 @@ h1 {
     align-items: center;
 }
 
+/* Texto debajo de la imagen (en negro) */
+#modalText {
+    color: #000000;
+    /* Letras en negro */
+}
+
 /* Ajustes para las imágenes dentro del carrusel */
 .carousel-inner .carousel-item img {
     width: 70%;
@@ -182,16 +188,33 @@ h1 {
     /* Asegura que el modal se alinee verticalmente */
 }
 
-.modal-content {
-    width: 100%;
-    /* Asegura que el modal ocupe todo el ancho disponible */
+/* Botón con letras en blanco */
+#nextImageButton {
+    background-color: #004B87;
+    /* Azulgrana */
+    color: #ffffff !important;
+    /* Letras blancas */
+    border: none;
+    /* Sin borde */
+    text-decoration: none;
+    /* Sin subrayado */
+    padding: 10px 20px;
+    /* Espaciado interno */
+    font-size: 16px;
+    /* Tamaño de la fuente */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    cursor: pointer;
+    /* Cambia el cursor cuando pasa por encima */
 }
 
-/* Fondo transparente para el modal */
-#modal-content {
-    background-color: transparent !important;
-    /* Fondo transparente para el contenido */
+#nextImageButton:hover {
+    background-color: #0059B3;
+    /* Un tono más oscuro de azulgrana al pasar el ratón */
 }
+
+
+/**BUSCADOR*/
 
 .search-container {
     display: flex;
@@ -205,6 +228,11 @@ h1 {
 }
 
 /*Tabla*/
+.highlight-row {
+    background-color: #ffeb3b;
+    /* Amarillo para resaltar */
+}
+
 .table-container {
     max-width: 80vw;
     margin: 0 auto;
@@ -247,75 +275,49 @@ div div div p {
     color: #FFEB3B;
 }
 
-#modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    /* Ancho completo de la ventana */
-    height: 100vh;
-    /* Alto completo de la ventana */
-    background-color: rgba(0, 0, 0, 0.5);
-    /* Fondo oscuro semitransparente */
-    justify-content: center;
-    align-items: center;
-    z-index: 1050;
-}
-
-#modal:target {
-    display: flex;
-}
-
-.modal-content {
-    padding: 20px;
-    border-radius: 8px;
-    background-color: white;
-    /* Fondo blanco */
-    width: 30vw;
-    /* Ancho */
-    height: auto;
-    /* Alto automático para adaptarse al contenido */
-    max-height: 80vh;
-    /* Máximo alto para evitar que se salga de la pantalla */
-    color: black;
-    /* Color de las letras */
-    overflow-y: auto;
-    /* Para permitir desplazamiento si el contenido es muy largo */
-}
-
-.modal-header,
-.modal-body,
-.modal-footer {
-    margin: 0;
-    padding: 0;
-    color: black;
-    /* Color de las letras */
-}
-
-.modal-header {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.modal-footer {
-    text-align: right;
-    margin-top: 20px;
-}
-
-.close-btn {
-    cursor: pointer;
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #007bff;
-    text-decoration: none;
-}
-
-.close-btn:hover {
-    text-decoration: underline;
-}
-
 .card-text#blanco {
     color: white !important;
+}
+
+/*RELOJ*/
+#progressBar {
+    width: 90%;
+    margin: 10px auto;
+    height: 22px;
+    background-color: #0A5F44;
+}
+
+#progressBar div {
+    height: 100%;
+    text-align: right;
+    padding: 0 10px;
+    line-height: 22px;
+    /* same as #progressBar height if we want text middle aligned */
+    width: 0;
+    background-color: #CBEA00;
+    box-sizing: border-box;
+}
+
+/* Do not take in account */
+
+a.solink {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    background: #f3f5f6;
+    color: #cfd6d9;
+    border: 1px solid #cfd6d9;
+    line-height: 30px;
+    text-decoration: none;
+    transition: all .3s;
+    z-index: 999
+}
+
+a.solink::first-letter {
+    text-transform: capitalize
+}
+
+a.solink:hover {
+    color: #428bca
 }
