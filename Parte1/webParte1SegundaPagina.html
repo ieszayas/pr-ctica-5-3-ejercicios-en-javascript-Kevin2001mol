@@ -140,15 +140,15 @@
             <!-- Reloj digital -->
             <div class=" mt-4">
                 <h2 id="digitalClock">
-                  Te quedan 00:00:00 para poder aprovecharte de descuentos exclusivos al registrarte
-              </div>
+                    Te quedan 00:00:00 para poder aprovecharte de descuentos exclusivos al registrarte
+            </div>
             <!-- Botones -->
             <button class="btn btn-primary" type="submit" id="btnEnviar">Enviar</button>
             <button class="btn btn-secondary" type="button" id="btnLimpiar">Limpiar datos</button>
         </form>
     </div>
-    
-    
+
+
     <!-- Progress-Bar 
     <div id="progressBar">
         <div class="bar"></div>
@@ -358,7 +358,7 @@
             document.getElementById(
                 "digitalClock"
             ).textContent = `¡Te quedan ${hours}:${minutes}:${seconds}  para poder aprovecharte de descuentos exclusivos al registrarte!`;
-        } 
+        }
 
         setInterval(updateCountdown, 1000); // Actualizar cada segundo
         updateCountdown(); // Llamar inmediatamente para inicializar
