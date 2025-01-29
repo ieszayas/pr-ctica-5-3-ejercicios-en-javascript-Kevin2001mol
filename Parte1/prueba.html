@@ -36,7 +36,7 @@
     <h1>Who Are Ya? - Barcelona Edition</h1>
     <img id="player-image" src="images/unknown.jpg" alt="Jugador Misterioso">
     <br><br>
-    <input type="text" id="guess-input" placeholder="Escribe el nombre del jugador">
+    <input type="text" id="guess-input" placeholder="Nombre del jugador">
     <button onclick="checkGuess()">Adivinar</button>
     <button id="new-game" onclick="resetGame()" style="display: none;">Nuevo</button>
     <p id="attempts">Intentos restantes: 7</p>
@@ -53,7 +53,7 @@
             { name: "Pau Cubarsi", position: "Defensa", age: 18, number: 2, nationality: "España", image: "images/cubarsi.jpg" },
             { name: "Ronald Araujo", position: "Defensa", age: 25, number: 4, nationality: "Uruguay", image: "images/araujo.jpg" },
             { name: "Andreas Christensen", position: "Defensa", age: 28, number: 15, nationality: "Dinamarca", image: "images/christensen.jpg" },
-            { name: "Eric García", position: "Defensa", age: 24, number: 24, nationality: "España", image: "images/eric.jpg" },
+            { name: "Eric Garcia", position: "Defensa", age: 24, number: 24, nationality: "España", image: "images/eric.jpg" },
             { name: "Iñigo Martinez", position: "Defensa", age: 33, number: 5, nationality: "España", image: "images/iñigo.jpg" },
             { name: "Sergi Dominguez", position: "Defensa", age: 19, number: 36, nationality: "España", image: "images/sergi.jpg" },
             { name: "Alejandro Balde", position: "Defensa", age: 21, number: 3, nationality: "España", image: "images/balde.jpg" },
@@ -109,10 +109,29 @@
                 document.getElementById("hints").innerHTML = `<h2>¡Correcto! Era ${mysteryPlayer.name}.</h2>`;
                 document.getElementById("new-game").style.display = "inline";
             } else {
+                // Comparar correctamente las edades y los dorsales
+                let ageHint = '';
+                if (foundPlayer.age < mysteryPlayer.age) {
+                    ageHint = '⬆️'; // El jugador adivinado es más joven
+                } else if (foundPlayer.age > mysteryPlayer.age) {
+                    ageHint = '⬇️'; // El jugador adivinado es mayor
+                } else {
+                    ageHint = '✅'; // Las edades coinciden
+                }
+
+                let numberHint = '';
+                if (foundPlayer.number < mysteryPlayer.number) {
+                    numberHint = '⬆️'; // El jugador adivinado tiene un dorsal menor
+                } else if (foundPlayer.number > mysteryPlayer.number) {
+                    numberHint = '⬇️'; // El jugador adivinado tiene un dorsal mayor
+                } else {
+                    numberHint = '✅'; // Los dorsales coinciden
+                }
+
                 let hints = `<div class='hint'>
                     Posición: ${foundPlayer.position === mysteryPlayer.position ? '✅' : '❌'} (${foundPlayer.position})<br>
-                    Edad: ${foundPlayer.age === mysteryPlayer.age ? '✅' : '❌'} (${foundPlayer.age})<br>
-                    Dorsal: ${foundPlayer.number === mysteryPlayer.number ? '✅' : '❌'} (${foundPlayer.number})<br>
+                    Edad: ${ageHint} (${foundPlayer.age})<br>
+                    Dorsal: ${numberHint} (${foundPlayer.number})<br>
                     Nacionalidad: ${foundPlayer.nationality === mysteryPlayer.nationality ? '✅' : '❌'} (${foundPlayer.nationality})
                 </div>`;
                 document.getElementById("hints").innerHTML += hints;
@@ -124,6 +143,9 @@
             startGame();
         }
     </script>
+
+
+
 </body>
 
 </html>
