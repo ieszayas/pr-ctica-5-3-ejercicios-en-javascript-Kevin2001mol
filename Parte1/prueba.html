@@ -38,6 +38,7 @@
     <br><br>
     <input type="text" id="guess-input" placeholder="Escribe el nombre del jugador">
     <button onclick="checkGuess()">Adivinar</button>
+    <button id="new-game" onclick="resetGame()" style="display: none;">Nuevo</button>
     <p id="attempts">Intentos restantes: 7</p>
     <div id="hints"></div>
 
@@ -45,13 +46,49 @@
         const players = [
             { name: "Lewandowski", position: "Delantero", age: 35, number: 9, nationality: "Polonia", image: "images/lewandowski.jpg" },
             { name: "Ter Stegen", position: "Portero", age: 31, number: 1, nationality: "Alemania", image: "images/terstegen.jpg" },
-            { name: "Pedri", position: "Centrocampista", age: 21, number: 8, nationality: "España", image: "images/pedri.jpg" }
+            { name: "Pedri", position: "Centrocampista", age: 21, number: 8, nationality: "España", image: "images/pedri.jpg" },
+            { name: "Iñaki Peña", position: "Portero", age: 25, number: 13, nationality: "España", image: "images/iñaki.jpg" },
+            { name: "Wojciech Szczesny", position: "Portero", age: 34, number: 25, nationality: "Polonia", image: "images/chesni.jpg" },
+            { name: "Ander Astralaga", position: "Portero", age: 20, number: 26, nationality: "España", image: "images/astralaga.jpg" },
+            { name: "Pau Cubarsí", position: "Defensa", age: 18, number: 2, nationality: "España", image: "images/cubarsi.jpg" },
+            { name: "Ronald Araujo", position: "Defensa", age: 25, number: 4, nationality: "Uruguay", image: "images/araujo.jpg" },
+            { name: "Andreas Christensen", position: "Defensa", age: 28, number: 15, nationality: "Dinamarca", image: "images/christensen.jpg" },
+            { name: "Eric García", position: "Defensa", age: 24, number: 24, nationality: "España", image: "images/eric.jpg" },
+            { name: "Iñigo Martinez", position: "Defensa", age: 33, number: 5, nationality: "España", image: "images/iñigo.jpg" },
+            { name: "Sergi Dominguez", position: "Defensa", age: 19, number: 36, nationality: "España", image: "images/sergi.jpg" },
+            { name: "Alejandro Balde", position: "Defensa", age: 21, number: 3, nationality: "España", image: "images/balde.jpg" },
+            { name: "Gerard Martin", position: "Defensa", age: 22, number: 35, nationality: "España", image: "images/gerard.jpg" },
+            { name: "Jules Kounde", position: "Defensa", age: 26, number: 23, nationality: "Francia", image: "images/kounde.jpg" },
+            { name: "Hector Fort", position: "Defensa", age: 18, number: 32, nationality: "España", image: "images/fort.jpg" },
+            { name: "Marc Casado", position: "Centrocampista", age: 21, number: 17, nationality: "España", image: "images/casado.jpg" },
+            { name: "Marc Bernal", position: "Centrocampista", age: 17, number: 28, nationality: "España", image: "images/bernal.jpg" },
+            { name: "Gavi", position: "Centrocampista", age: 20, number: 6, nationality: "España", image: "images/gavi.jpg" },
+            { name: "Fermin Lopez", position: "Centrocampista", age: 21, number: 16, nationality: "España", image: "images/fermin.jpg" },
+            { name: "Frenkie de Jong", position: "Centrocampista", age: 27, number: 21, nationality: "Países Bajos", image: "images/frenkie.jpg" },
+            { name: "Dani Olmo", position: "Centrocampista", age: 26, number: 20, nationality: "España", image: "images/olmo.jpg" },
+            { name: "Pablo Torre", position: "Centrocampista", age: 21, number: 14, nationality: "España", image: "images/pabloTorre.jpg" },
+            { name: "Raphinha", position: "Delantero", age: 28, number: 11, nationality: "Brasil", image: "images/raphinha.jpg" },
+            { name: "Ansu Fati", position: "Delantero", age: 22, number: 10, nationality: "España", image: "images/ansu.jpg" },
+            { name: "Lamine Yamal", position: "Delantero", age: 17, number: 19, nationality: "España", image: "images/lamine.jpg" },
+            { name: "Ferran Torres", position: "Delantero", age: 24, number: 7, nationality: "España", image: "images/ferran.jpg" },
+            { name: "Pau Victor", position: "Delantero", age: 23, number: 18, nationality: "España", image: "images/pauVictor.jpg" }
         ];
 
         let attempts = 7;
-        let mysteryPlayer = players[Math.floor(Math.random() * players.length)];
-        document.getElementById("player-image").src = mysteryPlayer.image;
-        document.getElementById("player-image").style.filter = "blur(20px)";
+        let mysteryPlayer;
+
+        function startGame() {
+            mysteryPlayer = players[Math.floor(Math.random() * players.length)];
+            document.getElementById("player-image").src = mysteryPlayer.image;
+            document.getElementById("player-image").style.filter = "blur(20px)";
+            document.getElementById("guess-input").value = "";
+            document.getElementById("hints").innerHTML = "";
+            document.getElementById("attempts").innerText = "Intentos restantes: 7";
+            document.getElementById("new-game").style.display = "none";
+            attempts = 7;
+        }
+
+        startGame();
 
         function checkGuess() {
             if (attempts <= 0) return;
@@ -70,6 +107,7 @@
             if (foundPlayer.name === mysteryPlayer.name) {
                 document.getElementById("player-image").style.filter = "blur(0px)";
                 document.getElementById("hints").innerHTML = `<h2>¡Correcto! Era ${mysteryPlayer.name}.</h2>`;
+                document.getElementById("new-game").style.display = "inline";
             } else {
                 let hints = `<div class='hint'>
                     Posición: ${foundPlayer.position === mysteryPlayer.position ? '✅' : '❌'} (${foundPlayer.position})<br>
@@ -80,6 +118,10 @@
                 document.getElementById("hints").innerHTML += hints;
                 document.getElementById("player-image").style.filter = `blur(${20 - (7 - attempts) * 3}px)`;
             }
+        }
+
+        function resetGame() {
+            startGame();
         }
     </script>
 </body>
