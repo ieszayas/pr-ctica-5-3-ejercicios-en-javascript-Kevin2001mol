@@ -33,14 +33,29 @@
 </head>
 
 <body>
-    <h1>Who Are Ya? - Barcelona Edition</h1>
-    <img id="player-image" src="images/unknown.jpg" alt="Jugador Misterioso">
-    <br><br>
-    <input type="text" id="guess-input" placeholder="Nombre del jugador">
-    <button onclick="checkGuess()">Adivinar</button>
-    <button id="new-game" onclick="resetGame()" style="display: none;">Nuevo</button>
-    <p id="attempts">Intentos restantes: 7</p>
-    <div id="hints"></div>
+    <div class="container">
+        <h1>Adivina el Jugador</h1>
+        <img id="player-image" src="images/lewandowski.jpg" alt="Jugador misterioso" class="img-fluid mb-3"
+            style="max-width: 300px;">
+        <div id="attempts">Intentos restantes: 7</div>
+        <input type="text" id="guess-input" class="form-control mb-3" placeholder="Introduce el nombre del jugador">
+        <button id="guess-button" class="btn btn-primary mb-3" onclick="checkGuess()">Adivinar</button>
+        <div id="hints"></div>
+        <button id="new-game" class="btn btn-success" onclick="startGame()" style="display:none;" disabled>Nuevo
+            Juego</button>
+
+        <!-- Toast -->
+        <div class="toast align-items-center text-white bg-danger border-0" id="toastLimpiar" role="alert"
+            aria-live="assertive" aria-atomic="true" style="position: fixed; top: 20px; right: 20px; z-index: 1050;">
+            <div class="d-flex">
+                <div class="toast-body">
+                    ¡Este jugador ya fue adivinado!
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
 
     <script>
         const players = [
@@ -53,7 +68,7 @@
             { name: "Pau Cubarsi", position: "Defensa", age: 18, number: 2, nationality: "España", image: "images/cubarsi.jpg" },
             { name: "Ronald Araujo", position: "Defensa", age: 25, number: 4, nationality: "Uruguay", image: "images/araujo.jpg" },
             { name: "Andreas Christensen", position: "Defensa", age: 28, number: 15, nationality: "Dinamarca", image: "images/christensen.jpg" },
-            { name: "Eric Garcia", position: "Defensa", age: 24, number: 24, nationality: "España", image: "images/eric.jpg" },
+            { name: "Eric García", position: "Defensa", age: 24, number: 24, nationality: "España", image: "images/eric.jpg" },
             { name: "Iñigo Martinez", position: "Defensa", age: 33, number: 5, nationality: "España", image: "images/iñigo.jpg" },
             { name: "Sergi Dominguez", position: "Defensa", age: 19, number: 36, nationality: "España", image: "images/sergi.jpg" },
             { name: "Alejandro Balde", position: "Defensa", age: 21, number: 3, nationality: "España", image: "images/balde.jpg" },
@@ -76,6 +91,7 @@
 
         let attempts = 7;
         let mysteryPlayer;
+        let guessedPlayers = [];
 
         function startGame() {
             mysteryPlayer = players[Math.floor(Math.random() * players.length)];
@@ -85,10 +101,18 @@
             document.getElementById("hints").innerHTML = "";
             document.getElementById("attempts").innerText = "Intentos restantes: 7";
             document.getElementById("new-game").style.display = "none";
+            document.getElementById("new-game").disabled = true;
             attempts = 7;
+            guessedPlayers = [];
         }
 
-        startGame();
+        window.onload = startGame;
+
+        function showToast() {
+            const toastElement = document.getElementById('toastLimpiar');
+            const toast = new bootstrap.Toast(toastElement);
+            toast.show();
+        }
 
         function checkGuess() {
             if (attempts <= 0) return;
@@ -96,11 +120,17 @@
             let guess = document.getElementById("guess-input").value.trim();
             let foundPlayer = players.find(p => p.name.toLowerCase() === guess.toLowerCase());
 
+            if (guessedPlayers.includes(guess.toLowerCase())) {
+                showToast(); // Mostrar el toast
+                return;
+            }
+
             if (!foundPlayer) {
                 alert("Jugador no encontrado en la lista.");
                 return;
             }
 
+            guessedPlayers.push(guess.toLowerCase());
             attempts--;
             document.getElementById("attempts").innerText = `Intentos restantes: ${attempts}`;
 
@@ -108,27 +138,28 @@
                 document.getElementById("player-image").style.filter = "blur(0px)";
                 document.getElementById("hints").innerHTML = `<h2>¡Correcto! Era ${mysteryPlayer.name}.</h2>`;
                 document.getElementById("new-game").style.display = "inline";
+                document.getElementById("new-game").disabled = false;
             } else {
-                // Comparar correctamente las edades y los dorsales
                 let ageHint = '';
                 if (foundPlayer.age < mysteryPlayer.age) {
-                    ageHint = '⬆️'; // El jugador adivinado es más joven
+                    ageHint = '⬆️';
                 } else if (foundPlayer.age > mysteryPlayer.age) {
-                    ageHint = '⬇️'; // El jugador adivinado es mayor
+                    ageHint = '⬇️';
                 } else {
-                    ageHint = '✅'; // Las edades coinciden
+                    ageHint = '✅';
                 }
 
                 let numberHint = '';
                 if (foundPlayer.number < mysteryPlayer.number) {
-                    numberHint = '⬆️'; // El jugador adivinado tiene un dorsal menor
+                    numberHint = '⬆️';
                 } else if (foundPlayer.number > mysteryPlayer.number) {
-                    numberHint = '⬇️'; // El jugador adivinado tiene un dorsal mayor
+                    numberHint = '⬇️';
                 } else {
-                    numberHint = '✅'; // Los dorsales coinciden
+                    numberHint = '✅';
                 }
 
                 let hints = `<div class='hint'>
+                    Nombre: ${guess} ❌<br>
                     Posición: ${foundPlayer.position === mysteryPlayer.position ? '✅' : '❌'} (${foundPlayer.position})<br>
                     Edad: ${ageHint} (${foundPlayer.age})<br>
                     Dorsal: ${numberHint} (${foundPlayer.number})<br>
@@ -137,15 +168,17 @@
                 document.getElementById("hints").innerHTML += hints;
                 document.getElementById("player-image").style.filter = `blur(${20 - (7 - attempts) * 3}px)`;
             }
+
+            if (attempts === 0) {
+                document.getElementById("hints").innerHTML = `<h2>Se acabaron los intentos. El jugador era: ${mysteryPlayer.name}</h2>`;
+                document.getElementById("player-image").style.filter = "blur(0px)";
+                document.getElementById("new-game").style.display = "inline";
+                document.getElementById("new-game").disabled = false;
+            }
         }
 
-        function resetGame() {
-            startGame();
-        }
+        document.getElementById("new-game").onclick = startGame;
     </script>
-
-
-
 </body>
 
 </html>
