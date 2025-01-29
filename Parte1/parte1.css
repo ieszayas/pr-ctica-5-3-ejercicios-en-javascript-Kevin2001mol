@@ -321,3 +321,30 @@ a.solink::first-letter {
 a.solink:hover {
     color: #428bca
 }
+
+/*imagen difuminada*/
+#player-image {
+    width: 200px;
+    height: 200px;
+    filter: blur(20px);
+    transition: filter 0.5s;
+}
+
+.hint {
+    margin-top: 10px;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.container {
+    text-align: center; /* Centra el texto y los elementos dentro de la caja */
+    display: flex;
+    flex-direction: column; /* Coloca los elementos en columna */
+    justify-content: center; /* Centra los elementos verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    gap: 20px; /* Agrega espacio entre los elementos */
+}
