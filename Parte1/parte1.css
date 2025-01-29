@@ -340,9 +340,10 @@ a.solink:hover {
     align-items: center;
     height: 100%;
 }
-.container {
-    text-align: center; /* Centra el texto y los elementos dentro de la caja */
-    display: flex;
+
+.container2 {
+   text-align: center; /* Centra el texto y los elementos dentro de la caja */
+   display: flex;
     flex-direction: column; /* Coloca los elementos en columna */
     justify-content: center; /* Centra los elementos verticalmente */
     align-items: center; /* Centra los elementos horizontalmente */

@@ -31,7 +31,7 @@
         ];
 
 
-        let attempts = 7;
+        let attempts = 4;
         let mysteryPlayer;
         let guessedPlayers = [];
 
@@ -41,10 +41,10 @@
             document.getElementById("player-image").style.filter = "blur(20px)";
             document.getElementById("guess-input").value = "";
             document.getElementById("hints").innerHTML = "";
-            document.getElementById("attempts").innerText = "Intentos restantes: 7";
+            document.getElementById("attempts").innerText = "Intentos restantes: 4";
             document.getElementById("new-game").style.display = "none";
             document.getElementById("new-game").disabled = true;
-            attempts = 7;
+            attempts = 4;
             guessedPlayers = [];
         }
 
@@ -108,7 +108,7 @@
             Nacionalidad: ${foundPlayer.nationality === mysteryPlayer.nationality ? '✅' : '❌'} (${foundPlayer.nationality})
         </div>`;
                 document.getElementById("hints").innerHTML += hints;
-                document.getElementById("player-image").style.filter = `blur(${20 - (7 - attempts) * 3}px)`;
+                document.getElementById("player-image").style.filter = `blur(${20 - (4 - attempts) * 3}px)`;
             }
 
             if (attempts === 0) {
