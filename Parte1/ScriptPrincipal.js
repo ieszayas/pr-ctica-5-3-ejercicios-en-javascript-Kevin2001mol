@@ -101,17 +101,22 @@ let speech = null; // Variable para la lectura de voz
 function readContent() {
     stopReading(); // Detiene cualquier lectura en curso antes de iniciar una nueva
 
+    if (!('speechSynthesis' in window)) {
+        alert("La síntesis de voz no es compatible con este navegador.");
+        return;
+    }
+
     let text = "";
-    const elements = document.querySelector('body').childNodes;
+    const elements = document.querySelectorAll('body *');
 
     elements.forEach(el => {
         if (el.nodeType === Node.ELEMENT_NODE) {
             if (el.tagName.match(/^H[1-6]$/)) { // Encabezados
                 text += ` Encabezado: ${el.innerText}. `;
-            } else if (el.tagName === "P") { // Párrafos
-                text += ` ${el.innerText}. `;
             } else if (el.tagName === "IMG" && el.alt) { // Imágenes con alt
                 text += ` Imagen: ${el.alt}. `;
+            } else if (el.tagName === "P") { // Párrafos
+                text += ` ${el.innerText}. `;
             } else if (el.tagName === "TABLE") { // Tablas
                 el.querySelectorAll("tr").forEach(row => {
                     row.querySelectorAll("th, td").forEach(cell => {
@@ -143,9 +148,22 @@ function stopReading() {
     }
 }
 
-
-
 document.addEventListener("DOMContentLoaded", function () {
     // Aquí dentro, el DOM estará completamente cargado
     console.log("DOM cargado");
+
+    const observer = new MutationObserver(() => {
+        readContent();
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Eventos de teclado para iniciar y detener la lectura
+    document.addEventListener('keydown', function(event) {
+        if (event.altKey && event.key === 'l') {
+            readContent();
+        } else if (event.altKey && event.key === 'p') {
+            stopReading();
+        }
+    });
 });
