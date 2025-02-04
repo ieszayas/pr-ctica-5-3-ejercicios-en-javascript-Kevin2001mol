@@ -462,6 +462,19 @@
             </tbody>
         </table>
     </div>
+
+    <!-- Toast -->
+    <div class="toast align-items-center text-white bg-danger border-0" id="toastLimpiar" role="alert"
+        aria-live="assertive" aria-atomic="true" style="position: fixed; top: 20px; right: 20px; z-index: 1050;">
+        <div class="d-flex">
+            <div class="toast-body">
+                Jugador no encontrado.
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
     <br><br><br>
     <footer class="bg-dark text-white py-4">
         <div class="container">
@@ -471,7 +484,8 @@
                     <h5>Términos Legales</h5>
                     <ul class="list-unstyled">
                         <li><i class="bi bi-file-earmark-pdf-fill"></i> <a
-                                href="https://www.fcbarcelona.es/es/aviso-legal" class="text-white"> Leer Términos</a>
+                                href="https://www.fcbarcelona.es/es/aviso-legal" class="text-white"> Leer
+                                Términos</a>
                         </li>
                     </ul>
                 </div>
@@ -494,12 +508,16 @@
                     <h5>Trabaja con Nosotros</h5>
                     <ul class="list-unstyled">
                         <li><i class="bi bi-briefcase-fill"></i> <a href="https://www.fcbarcelona.es/es/club/contacto"
-                                class="text-white">Ver Vacantes</a></li>
+                                class="text-white">Ver
+                                Vacantes</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="ScriptPrincipal.js"></script>
 </body>
 

@@ -61,7 +61,7 @@ document.getElementById('searchForm').addEventListener('submit', function (event
 
     // Comprobamos si hay algo escrito en el campo de búsqueda
     if (!searchQuery) {
-        alert('Por favor, introduce un nombre para buscar.');
+        showToast('Por favor, introduce un nombre para buscar.');
         return;
     }
 
@@ -90,9 +90,17 @@ document.getElementById('searchForm').addEventListener('submit', function (event
     }
 
     if (!found) {
-        alert('Jugador no encontrado');
+        showToast('Jugador no encontrado.');
     }
 });
+
+function showToast(message) {
+    const toastElement = document.getElementById('playerNotFoundToast');
+    const toastBody = toastElement.querySelector('.toast-body');
+    toastBody.textContent = message;
+    const toast = new bootstrap.Toast(toastElement);
+    toast.show();
+}
 
 //Accesibilidad
 
