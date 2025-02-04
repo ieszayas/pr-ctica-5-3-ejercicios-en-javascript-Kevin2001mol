@@ -1,4 +1,3 @@
-
 // Variable para rastrear la imagen activa en el carrusel
 let currentImageIndex = 0;
 let imageDescriptions = [
@@ -46,7 +45,6 @@ document.getElementById("imageModal").addEventListener("hidden.bs.modal", functi
     document.body.classList.remove("modal-open");
 });
 
-
 // Añadir un event listener para el evento de enviar el formulario
 document.getElementById('searchForm').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevenir que el formulario se envíe
@@ -73,7 +71,7 @@ document.getElementById('searchForm').addEventListener('submit', function (event
 
         // Comprobamos que haya al menos una celda (esto también garantiza que no estamos tocando las filas del encabezado)
         if (cells.length > 1) {
-            const playerName = cells[1].textContent.trim().toLowerCase(); // Obtener el nombre del jugador (segunda celda)
+            const playerName = cells[0].textContent.trim().toLowerCase(); // Obtener el nombre del jugador (primera celda)
 
             // Verificación en consola
             console.log(`Buscando: "${searchQuery}", Jugador: "${playerName}"`);
@@ -86,6 +84,8 @@ document.getElementById('searchForm').addEventListener('submit', function (event
                 found = true;
                 break; // Salir del bucle cuando se encuentra el jugador
             }
+        } else {
+            console.log(`Fila ${i} no tiene suficientes celdas.`);
         }
     }
 
@@ -131,7 +131,7 @@ function readContent() {
 
     if (text.trim() === "") {
         alert("No hay contenido para leer.");
-        return;
+        return; 
     }
 
     speech = new SpeechSynthesisUtterance(text);

@@ -228,9 +228,8 @@ h1 {
 }
 
 /*Tabla*/
-.highlight-row {
-    background-color: #ffeb3b;
-    /* Amarillo para resaltar */
+#playersTable tr.highlight-row {
+    background-color: yellow !important; /* Cambia el color de fondo a amarillo */
 }
 
 .table-container {
@@ -319,7 +318,7 @@ a.solink::first-letter {
 }
 
 a.solink:hover {
-    color: #428bca
+    color: #428bca;
 }
 
 /*imagen difuminada*/
@@ -342,10 +341,11 @@ a.solink:hover {
 }
 
 .container2 {
-   text-align: center; /* Centra el texto y los elementos dentro de la caja */
-   display: flex;
+    text-align: center; /* Centra el texto y los elementos dentro de la caja */
+    display: flex;
     flex-direction: column; /* Coloca los elementos en columna */
     justify-content: center; /* Centra los elementos verticalmente */
     align-items: center; /* Centra los elementos horizontalmente */
     gap: 20px; /* Agrega espacio entre los elementos */
 }
+
