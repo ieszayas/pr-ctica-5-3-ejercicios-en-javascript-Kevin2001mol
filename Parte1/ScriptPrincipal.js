@@ -139,7 +139,7 @@ function readContent() {
 
     if (text.trim() === "") {
         alert("No hay contenido para leer.");
-        return; 
+        return;
     }
 
     speech = new SpeechSynthesisUtterance(text);
@@ -167,11 +167,61 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(document.body, { childList: true, subtree: true });
 
     // Eventos de teclado para iniciar y detener la lectura
-    document.addEventListener('keydown', function(event) {
+    document.addEventListener('keydown', function (event) {
         if (event.altKey && event.key === 'l') {
             readContent();
         } else if (event.altKey && event.key === 'p') {
             stopReading();
         }
     });
+
+    const apiKey = '15a6cb1990d547cc84e67faf389777f4'; // Reemplaza con tu clave API
+    const url = 'https://api.football-data.org/v4/teams/81'; // URL de la API para obtener jugadores del FC Barcelona
+
+    fetch(url, {
+        headers: { 'X-Auth-Token': apiKey }
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const players = data.squad;
+            const topPlayers = players.slice(0, 10); // Obtener los primeros 10 jugadores (puedes ajustar esto según los datos reales)
+
+            let tableHTML = `
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Posición</th>
+                        <th>Goles</th>
+                        <th>Asistencias</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+
+            topPlayers.forEach(player => {
+                tableHTML += `
+                <tr>
+                    <td>${player.name}</td>
+                    <td>${player.position}</td>
+                    <td>${player.goals || 0}</td>
+                    <td>${player.assists || 0}</td>
+                </tr>
+            `;
+            });
+
+            tableHTML += `
+                </tbody>
+            </table>
+        `;
+
+            document.getElementById('topPlayersTableContainer').innerHTML = tableHTML;
+        })
+        .catch(error => console.error('Error fetching data:', error));
 });
+//Tabla goles y asistencias
