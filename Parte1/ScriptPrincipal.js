@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
             stopReading();
         }
     });
-
+    //goles y asistencias
     const apiKey = '15a6cb1990d547cc84e67faf389777f4'; // Reemplaza con tu clave API
     const url = 'https://api.football-data.org/v4/teams/81'; // URL de la API para obtener jugadores del FC Barcelona
 
