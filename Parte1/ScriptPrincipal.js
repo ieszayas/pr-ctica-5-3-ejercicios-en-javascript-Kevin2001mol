@@ -225,3 +225,18 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => console.error('Error fetching data:', error));
 });
 //Tabla goles y asistencias
+fetch("https://api.football-data.org/v4/teams/81", {
+    method: "GET",
+    headers: {
+      "X-Auth-Token": "15a6cb1990d547cc84e67faf389777f4"
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log("Lista de jugadores del FC Barcelona:");
+    data.squad.forEach(player => {
+      console.log(`${player.name} - ${player.position}`);
+    });
+  })
+  .catch(error => console.error("Error:", error));
+  
