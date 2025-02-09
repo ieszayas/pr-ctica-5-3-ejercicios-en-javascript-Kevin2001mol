@@ -102,7 +102,7 @@ function showToast(message) {
     toast.show();
 }
 
-//Accesibilidad
+// Accesibilidad
 
 let speech = null; // Variable para la lectura de voz
 
@@ -174,6 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
             stopReading();
         }
     });
+    /*
     //goles y asistencias
     const apiKey = '15a6cb1990d547cc84e67faf389777f4'; // Reemplaza con tu clave API
     const url = 'https://api.football-data.org/v4/teams/81'; // URL de la API para obtener jugadores del FC Barcelona
@@ -228,15 +229,53 @@ document.addEventListener("DOMContentLoaded", function () {
 fetch("https://api.football-data.org/v4/teams/81", {
     method: "GET",
     headers: {
-      "X-Auth-Token": "15a6cb1990d547cc84e67faf389777f4"
+        "X-Auth-Token": "15a6cb1990d547cc84e67faf389777f4"
     }
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log("Lista de jugadores del FC Barcelona:");
-    data.squad.forEach(player => {
-      console.log(`${player.name} - ${player.position}`);
-    });
-  })
-  .catch(error => console.error("Error:", error));
-  
+})
+    .then(response => response.json())
+    .then(data => {
+        console.log("Lista de jugadores del FC Barcelona:");
+        data.squad.forEach(player => {
+            console.log(`${player.name} - ${player.position}`);
+        });
+    })
+    .catch(error => console.error("Error:", error));
+*/
+ // MY API
+    // Hacer la solicitud a la API
+    fetch('http://localhost:8080/api/jugadores') // Cambia la URL si es necesario
+        .then(response => response.json()) // Parsear la respuesta como JSON
+        .then(data => {
+            // Obtenemos el cuerpo de la tabla
+            const tableBody = document.querySelector('#jugadoresTable tbody');
+
+            // Recorremos los datos y los agregamos a la tabla
+            data.forEach(jugador => {
+                // Crear una nueva fila
+                const row = document.createElement('tr');
+
+                // Crear las celdas para cada jugador
+                const nombreCell = document.createElement('td');
+                nombreCell.textContent = jugador.nombre; // Cambia esto según la estructura de tu objeto
+                row.appendChild(nombreCell);
+
+                const golesCell = document.createElement('td');
+                golesCell.textContent = jugador.goles; // Cambia esto según la estructura de tu objeto
+                row.appendChild(golesCell);
+
+                const asistenciasCell = document.createElement('td');
+                asistenciasCell.textContent = jugador.asistencias; // Cambia esto según la estructura de tu objeto
+                row.appendChild(asistenciasCell);
+
+                const partidosCell = document.createElement('td');
+                partidosCell.textContent = jugador.partidos; // Cambia esto según la estructura de tu objeto
+                row.appendChild(partidosCell);
+
+                // Agregar la fila al cuerpo de la tabla
+                tableBody.appendChild(row);
+            });
+        })
+        .catch(error => {
+            console.error('Error al obtener los datos:', error);
+        });
+});
