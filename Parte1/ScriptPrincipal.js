@@ -192,7 +192,6 @@ fetch('http://localhost:8080/api/jugadores') // Cambia la URL si es necesario
                         <td>${jugador.goles}</td>
                         <td>${jugador.asistencias}</td>
                         <td>${jugador.partidos}</td>
-                        
                     `;
             tableBody.appendChild(row);
         });
