@@ -1,3 +1,4 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/NihlhP5-)
 # Práctica 5.3 Ejercicios en JavaScript
 
 ## Parte 1
@@ -14,8 +15,9 @@
 
 Escoge de entre estos 3 de los siguientes apartados, para implementar interactividad a tu interfaz en JavaScript:
 
-1.  Agrega en el menú un botón de "*Modo Oscuro/claro*” para mediante un script alternar entre estos en tú página.
-2.  Busca el código para agregar un **reloj digital sencillo** en JavaScript en alguna parte de tu página.
+1.  Agrega en el menú un botón de "*Modo Oscuro/claro*” para mediante un script alternar entre estos en tú página. (esto se `puede meter en la hamburguesa y que sea como la segunda equipacion del barsa)
+2.  Busca el código para agregar un **reloj digital sencillo** en JavaScript en alguna parte de tu página.(Esto se intenta meter en la ventana modal y si no natin)
 3.  Crea un script para que al hacer clic sobre una **imagen del carrusel** se agrande sin cerrar la galería y un botón para cambiar las imágenes del carrusel dinámicamente al clic en este.
-4.  Agrega a tu formulario un **selector de color**, en el que al hacer clic, cambie el color de la tabla de datos.
-5.  Agrega un campo para poder hacer una **búsqueda dinámicar** el contenido mostrado en la tabla.
+4.  Agrega a tu formulario un **selector de color**, en el que al hacer clic, cambie el color de la tabla de datos. (en la tabla (mojon))
+5.  Agrega un campo para poder hacer una **búsqueda dinámicar** el contenido mostrado en la tabla.(buscar jugador y que te lleve hasta el)
+.
