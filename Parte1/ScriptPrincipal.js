@@ -174,108 +174,30 @@ document.addEventListener("DOMContentLoaded", function () {
             stopReading();
         }
     });
-    /*
-    //goles y asistencias
-    const apiKey = '15a6cb1990d547cc84e67faf389777f4'; // Reemplaza con tu clave API
-    const url = 'https://api.football-data.org/v4/teams/81'; // URL de la API para obtener jugadores del FC Barcelona
-
-    fetch(url, {
-        headers: { 'X-Auth-Token': apiKey }
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => {
-            const players = data.squad;
-            const topPlayers = players.slice(0, 10); // Obtener los primeros 10 jugadores (puedes ajustar esto según los datos reales)
-
-            let tableHTML = `
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Posición</th>
-                        <th>Goles</th>
-                        <th>Asistencias</th>
-                    </tr>
-                </thead>
-                <tbody>
-        `;
-
-            topPlayers.forEach(player => {
-                tableHTML += `
-                <tr>
-                    <td>${player.name}</td>
-                    <td>${player.position}</td>
-                    <td>${player.goals || 0}</td>
-                    <td>${player.assists || 0}</td>
-                </tr>
-            `;
-            });
-
-            tableHTML += `
-                </tbody>
-            </table>
-        `;
-
-            document.getElementById('topPlayersTableContainer').innerHTML = tableHTML;
-        })
-        .catch(error => console.error('Error fetching data:', error));
 });
-//Tabla goles y asistencias
-fetch("https://api.football-data.org/v4/teams/81", {
-    method: "GET",
-    headers: {
-        "X-Auth-Token": "15a6cb1990d547cc84e67faf389777f4"
-    }
-})
-    .then(response => response.json())
+// MY API
+// Hacer la solicitud a la API
+fetch('http://localhost:8080/api/jugadores') // Cambia la URL si es necesario
+    .then(response => response.json()) // Parsear la respuesta como JSON
     .then(data => {
-        console.log("Lista de jugadores del FC Barcelona:");
-        data.squad.forEach(player => {
-            console.log(`${player.name} - ${player.position}`);
+        // Obtenemos el cuerpo de la tabla
+        const tableBody = document.getElementById('jugadores10');
+        tableBody.innerHTML = "";
+
+        // Agregar la fila al cuerpo de la tabla
+        data.forEach(jugador => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                        <td>${jugador.nombre}</td>
+                        <td>${jugador.goles}</td>
+                        <td>${jugador.asistencias}</td>
+                        <td>${jugador.partidos}</td>
+                        
+                    `;
+            tableBody.appendChild(row);
         });
     })
-    .catch(error => console.error("Error:", error));
-*/
- // MY API
-    // Hacer la solicitud a la API
-    fetch('http://localhost:8080/api/jugadores') // Cambia la URL si es necesario
-        .then(response => response.json()) // Parsear la respuesta como JSON
-        .then(data => {
-            // Obtenemos el cuerpo de la tabla
-            const tableBody = document.querySelector('#jugadoresTable tbody');
 
-            // Recorremos los datos y los agregamos a la tabla
-            data.forEach(jugador => {
-                // Crear una nueva fila
-                const row = document.createElement('tr');
-
-                // Crear las celdas para cada jugador
-                const nombreCell = document.createElement('td');
-                nombreCell.textContent = jugador.nombre; // Cambia esto según la estructura de tu objeto
-                row.appendChild(nombreCell);
-
-                const golesCell = document.createElement('td');
-                golesCell.textContent = jugador.goles; // Cambia esto según la estructura de tu objeto
-                row.appendChild(golesCell);
-
-                const asistenciasCell = document.createElement('td');
-                asistenciasCell.textContent = jugador.asistencias; // Cambia esto según la estructura de tu objeto
-                row.appendChild(asistenciasCell);
-
-                const partidosCell = document.createElement('td');
-                partidosCell.textContent = jugador.partidos; // Cambia esto según la estructura de tu objeto
-                row.appendChild(partidosCell);
-
-                // Agregar la fila al cuerpo de la tabla
-                tableBody.appendChild(row);
-            });
-        })
-        .catch(error => {
-            console.error('Error al obtener los datos:', error);
-        });
-});
+    .catch (error => {
+    console.error('Error al obtener los datos:', error);
+})
