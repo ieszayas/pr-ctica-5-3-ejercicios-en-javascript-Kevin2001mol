@@ -189,9 +189,9 @@ fetch('http://localhost:8080/api/jugadores') // Cambia la URL si es necesario
             const row = document.createElement("tr");
             row.innerHTML = `
                 <td>${jugador.nombre}</td>
-                <td>${jugador.goles}</td>
-                <td>${jugador.asistencias}</td>
                 <td>${jugador.dorsal}</td>
+                <td>${jugador.asistencias}</td>
+                <td>${jugador.goles}</td>
             `;
             tableBody.appendChild(row);
         });
