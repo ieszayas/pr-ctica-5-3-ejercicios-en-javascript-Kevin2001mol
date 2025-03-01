@@ -200,3 +200,95 @@ fetch('http://localhost:8080/api/jugadores') // Cambia la URL si es necesario
     .catch (error => {
     console.error('Error al obtener los datos:', error);
 })
+
+   // Obtener el contexto del canvas
+   const ctx = document.getElementById('marketValueChart').getContext('2d');
+
+   // Calcular los 5 años (por ejemplo, desde el año actual menos 4 hasta el año actual)
+   const currentYear = new Date().getFullYear();
+   const years = [];
+   for (let i = 4; i >= 0; i--) {
+       years.push(currentYear - i);
+   }
+
+   // Datos simulados de valor de mercado (en mill. €)
+   const data = {
+       labels: years,
+       datasets: [
+           {
+               label: 'Lamine Yamal',
+               data: [50, 80, 120, 150, 180], // Valores ficticios
+               borderColor: 'red',
+               backgroundColor: 'rgba(255,0,0,0.2)',
+               fill: false,
+           },
+           {
+               label: 'Pedri',
+               data: [30, 40, 60, 80, 100], // Valores ficticios
+               borderColor: 'blue',
+               backgroundColor: 'rgba(0,0,255,0.2)',
+               fill: false,
+           },
+           {
+               label: 'Ronald Araujo',
+               data: [20, 30, 40, 50, 55], // Valores ficticios
+               borderColor: 'green',
+               backgroundColor: 'rgba(0,255,0,0.2)',
+               fill: false,
+           }
+       ]
+   };
+
+   // Configuración del gráfico con textos, ejes y cuadriculas en blanco
+   const config = {
+       type: 'line',
+       data: data,
+       options: {
+           responsive: true,
+           plugins: {
+               legend: {
+                   labels: {
+                       color: 'white' // Color de la leyenda
+                   }
+               },
+               title: {
+                   display: true,
+                   text: 'Evolución del Valor de Mercado (últimos 5 años)',
+                   color: 'white' // Color del título del gráfico
+               }
+           },
+           scales: {
+               x: {
+                   grid: {
+                       color: 'white',      // Líneas de la cuadricula del eje X
+                       borderColor: 'white' // Borde del eje X
+                   },
+                   title: {
+                       display: true,
+                       text: 'Año',
+                       color: 'white' // Color del título del eje X
+                   },
+                   ticks: {
+                       color: 'white' // Color de las etiquetas del eje X
+                   }
+               },
+               y: {
+                   grid: {
+                       color: 'white',      // Líneas de la cuadricula del eje Y
+                       borderColor: 'white' // Borde del eje Y
+                   },
+                   title: {
+                       display: true,
+                       text: 'Valor (mill. €)',
+                       color: 'white' // Color del título del eje Y
+                   },
+                   ticks: {
+                       color: 'white' // Color de las etiquetas del eje Y
+                   }
+               }
+           }
+       }
+   };
+
+   // Crear la gráfica
+   const marketValueChart = new Chart(ctx, config);
