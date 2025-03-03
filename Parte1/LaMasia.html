@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<!-- Define que este documento es HTML5 -->
+<html lang="es">
+<!-- Establece el idioma del contenido como español -->
+<head>
+    <!-- Inicio de la sección head: metadatos y enlaces a recursos externos -->
+    <meta charset="UTF-8">
+    <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configura la vista para dispositivos móviles (responsive) -->
+    <title>FC Barcelona</title>
+    <!-- Título de la página que se muestra en la pestaña del navegador -->
+    <link rel="stylesheet" href="parte1.css">
+    <!-- Enlace a la hoja de estilos principal -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Enlace a la hoja de estilos de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Enlace a la biblioteca de iconos de Bootstrap Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Optimiza la conexión a Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Optimiza la conexión a Google Fonts (requiere crossorigin) -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <!-- Enlace a la fuente "Dancing Script" desde Google Fonts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Enlace al script de Bootstrap Bundle (incluye Popper) -->
+</head>
+
+<body>
+    <!-- Inicio del cuerpo del documento -->
+    <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #A2214B;" data-bs-theme="dark">
+        <!-- Barra de navegación de Bootstrap con clases para expandirse en pantallas grandes, posición fija y tema oscuro -->
+        <div class="container-fluid">
+            <!-- Contenedor fluido para que la navbar ocupe todo el ancho -->
+            <!-- Sección para el logo e imagen -->
+            <div class="d-flex align-items-center">
+                <!-- Contenedor flexible para alinear elementos en fila verticalmente centrados -->
+                <img src="../media/Barcelona-logo-escudo.png" alt="Logo Barcelona" width="30" height="30"
+                    class="d-inline-block align-text-top me-2">
+                <!-- Imagen del logo del FC Barcelona con tamaño definido y margen a la derecha -->
+                <span class="navbar-brand mb-0 h1">FC Barcelona</span>
+                <!-- Nombre de la marca en la navbar -->
+            </div>
+
+            <!-- Botón para colapsar el menú en dispositivos pequeños -->
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                <!-- Ícono del botón del menú colapsable -->
+            </button>
+
+            <!-- Menú desplegable de la navbar -->
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <!-- Contenedor colapsable que se expande al hacer clic en el botón -->
+                <ul class="navbar-nav ms-3">
+                    <!-- Lista de navegación con margen a la izquierda para alinear los elementos -->
+                    <li class="nav-item">
+                        <!-- Elemento de la lista para la opción "Inicio" -->
+                        <a class="nav-link active" aria-current="page" href="webparte1.html">Inicio</a>
+                        <!-- Enlace a la página de inicio con la clase active -->
+                    </li>
+                    <li class="nav-item">
+                        <!-- Elemento de la lista para la opción "Plantilla" -->
+                        <a class="nav-link" href="webparte1.html#tabla-plantilla">Plantilla</a>
+                        <!-- Enlace que redirige a la sección de la plantilla dentro de la página de inicio -->
+                    </li>
+                    <li class="nav-item">
+                        <!-- Elemento de la lista para la opción "Tienda Oficial" -->
+                        <a class="nav-link" href="https://store.fcbarcelona.com/es/">Tienda Oficial</a>
+                        <!-- Enlace externo a la tienda oficial del FC Barcelona -->
+                    </li>
+                    <li class="nav-item dropdown">
+                        <!-- Elemento de la lista con submenú desplegable -->
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Club
+                        </a>
+                        <!-- Enlace que activa el dropdown del menú -->
+                        <ul class="dropdown-menu">
+                            <!-- Lista interna del dropdown -->
+                            <li><a class="dropdown-item" href="https://www.fcbarcelonanoticias.com/">Actualidad</a></li>
+                            <!-- Elemento del dropdown para "Actualidad" -->
+                            <li><a class="dropdown-item" href="webParte1SegundaPagina.html">Ser Culer</a></li>
+                            <!-- Elemento del dropdown para "Ser Culer" -->
+                            <li><a class="dropdown-item" href="#">La Masía</a></li>
+                            <!-- Elemento del dropdown para "La Masía" (sin enlace definido) -->
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Elementos alineados a la derecha en la navbar -->
+                <ul class="navbar-nav ms-auto">
+                    <!-- Lista de elementos con auto margen a la izquierda para empujar al final -->
+                    <li class="nav-item">
+                        <!-- Elemento de la lista para la barra de búsqueda -->
+                        <form class="d-flex">
+                            <!-- Formulario de búsqueda con clase flex -->
+                            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                            <!-- Campo de búsqueda con margen a la derecha -->
+                            <button class="btn btn-outline-light" type="submit">Buscar</button>
+                            <!-- Botón de búsqueda con estilos de Bootstrap -->
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Elemento de la lista para el enlace "Mi cuenta" -->
+                        <a class="icon-link" href="webParte1SegundaPagina.html">
+                            <!-- Enlace a otra página (por ejemplo, la de "Ser Culer") -->
+                            <i class="bi bi-person"></i>
+                            <!-- Ícono de persona (usuario) de Bootstrap Icons -->
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Espacios verticales -->
+    <br><br><br>
+    <h1 class="firma">La Masía</h1>
+    <!-- Título principal de la sección "La Masía" -->
+    <br><br><br><br>
+    <div class="container text-center">
+        <!-- Contenedor centralizado con Bootstrap y texto centrado -->
+        <div class="row">
+            <!-- Inicio de la fila para dividir en columnas -->
+            <div class="col order-first">
+                <!-- Primera columna, ordenada primero en dispositivos flexibles -->
+                <div class="card"
+                    style="width: 18rem; background-image: linear-gradient(to right, #8D2857, #6F3166); color: white; border: none;">
+                    <!-- Tarjeta de Bootstrap con estilo personalizado (ancho, gradiente, color de texto y sin borde) -->
+                    <img src="../media/Lamine.webp" class="card-img-top" alt="Lamine Yamal">
+                    <!-- Imagen superior de la tarjeta -->
+                    <div class="card-body">
+                        <!-- Cuerpo de la tarjeta -->
+                        <h5 class="card-title" style="color: #DEB405;">Lamine Yamal</h5>
+                        <!-- Título de la tarjeta con color personalizado -->
+                        <p class="card-text" id="blanco">
+                            <!-- Párrafo con descripción y texto en color blanco -->
+                            Lamine Yamal, nacido el 13 de julio de 2007 en Mataró, España, es un joven
+                            futbolista considerado una de las mayores promesas del FC Barcelona y del fútbol mundial.
+                            De ascendencia marroquí y ecuatoguineana, debutó con el primer equipo del Barcelona en abril
+                            de 2023,
+                            convirtiéndose en el jugador más joven en la historia del club en hacerlo en LaLiga, con
+                            solo 15 años.
+                            Yamal se destaca por su habilidad técnica, visión de juego y madurez en el campo, cualidades
+                            que le han
+                            llevado a ser comparado con grandes figuras del fútbol. Además, representa a España en
+                            competiciones
+                            internacionales juveniles.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <!-- Segunda columna -->
+                <div class="card"
+                    style="width: 18rem; background-image: linear-gradient(to right, #64346C, #4A3C79); color: white; border: none;">
+                    <!-- Tarjeta con estilo personalizado para Toni Fernández -->
+                    <img src="../media/ToniFernandez.jpg" class="card-img-top" alt="Toni Fernandez">
+                    <!-- Imagen superior de la tarjeta -->
+                    <div class="card-body">
+                        <!-- Cuerpo de la tarjeta -->
+                        <h5 class="card-title" style="color: #DEB405;">Toni Fernandez</h5>
+                        <!-- Título de la tarjeta -->
+                        <p class="card-text" id="blanco">
+                            <!-- Párrafo descriptivo para Toni Fernández -->
+                            Antonio "Toni" Fernández Casino, nacido el 15 de julio de 2008 en Rubí,
+                            España, es un futbolista que se desempeña como delantero en el FC Barcelona Atlètic. Formado
+                            en las categorías inferiores del club desde 2018, tras su paso por el Espanyol, ha destacado
+                            por su habilidad técnica y capacidad goleadora. El 4 de enero de 2025, debutó con el primer
+                            equipo del FC Barcelona en un partido de la Copa del Rey contra el Barbastro, convirtiéndose
+                            en el segundo jugador más joven en hacerlo en el siglo XXI, con 16 años y 173 días.
+                            OFFICIAL FC BARCELONA WEBSITE
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col order-last">
+                <!-- Tercera columna, ordenada al final -->
+                <div class="card"
+                    style="width: 18rem; background-image: linear-gradient(to right, #3E3F7F, #24478C); color: white; border: none;">
+                    <!-- Tarjeta con estilo personalizado para "Masía Kids" -->
+                    <img src="../media/YouthLeague.webp" class="card-img-top" alt="Youth League">
+                    <!-- Imagen superior de la tarjeta -->
+                    <div class="card-body">
+                        <!-- Cuerpo de la tarjeta -->
+                        <h5 class="card-title" style="color: #DEB405;">Masía Kids</h5>
+                        <!-- Título de la tarjeta -->
+                        <p class="card-text" id="blanco">
+                            <!-- Párrafo descriptivo sobre la participación en la UEFA Youth League -->
+                            El FC Barcelona ha competido en la UEFA Youth League 2024/2025 con un
+                            equipo formado por jóvenes talentos de La Masia, demostrando una vez más la fortaleza de su
+                            cantera. Entre los jugadores destacados se encuentran Eder Aller y Max Bonfill como
+                            porteros, mientras que en defensa han brillado Landry Farré, Leonard Saca, Jofre Torrents y
+                            Héctor Rangel, entre otros. El mediocampo ha sido liderado por promesas como Xavi Espart,
+                            Brian Fariñas y Nil Vicens Ponsati, este último con tan solo 16 años. En la delantera, Jan
+                            Virgili, Shane Kluivert y Daniel Ferrer Saez han sido piezas clave para el ataque del
+                            equipo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sección del minijuego "Kids Zone" -->
+    <div class="center-container">
+        <!-- Contenedor centrado utilizando una clase personalizada -->
+        <div class="container2">
+            <!-- Contenedor adicional para organizar el contenido -->
+            <h1 class="firma">Kids Zone</h1>
+            <!-- Título principal para la zona de minijuego -->
+            <h1 class="firma">¡Adivina el Jugador!</h1>
+            <!-- Subtítulo del minijuego -->
+            <img id="player-image" src="images/lewandowski.jpg" alt="Jugador misterioso" class="img-fluid mb-3"
+                style="max-width: 300px;">
+            <!-- Imagen que muestra el jugador misterioso; se actualizará dinámicamente -->
+            <div id="attempts">Intentos restantes: 4</div>
+            <!-- Contenedor para mostrar la cantidad de intentos restantes -->
+            <input type="text" id="guess-input" class="form-control mb-3" placeholder="Introduce el nombre del jugador">
+            <!-- Campo de texto para que el usuario introduzca su adivinanza -->
+            <button id="guess-button" class="btn btn-primary mb-3" onclick="checkGuess()">Adivinar</button>
+            <!-- Botón para enviar la adivinanza que llama a la función checkGuess() al hacer clic -->
+            <div id="hints"></div>
+            <!-- Contenedor donde se mostrarán pistas sobre la adivinanza -->
+            <button id="new-game" class="btn btn-success" onclick="startGame()" style="display:none;" disabled>Nuevo
+                Juego</button>
+            <!-- Botón para reiniciar el juego, inicialmente oculto y deshabilitado -->
+
+            <!-- Toast para mostrar mensajes de notificación -->
+            <div class="toast align-items-center text-white bg-danger border-0" id="toastLimpiar" role="alert"
+                aria-live="assertive" aria-atomic="true"
+                style="position: fixed; top: 20px; right: 20px; z-index: 1050;">
+                <!-- Contenedor del toast con posicionamiento fijo -->
+                <div class="d-flex">
+                    <!-- Contenedor flexible para alinear el contenido del toast -->
+                    <div class="toast-body">
+                        ¡Ya has probado con este jugador!
+                        <!-- Mensaje predeterminado del toast -->
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
+                    <!-- Botón para cerrar el toast -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Espacio vertical antes del footer -->
+    <br><br><br>
+    
+    <footer class="bg-dark text-white py-4">
+        <!-- Pie de página con fondo oscuro, texto blanco y padding vertical -->
+        <div class="container">
+            <!-- Contenedor para centrar el contenido del footer -->
+            <div class="row">
+                <!-- Fila para dividir el footer en columnas -->
+                <div class="col-md-4">
+                    <!-- Primera columna: Términos Legales -->
+                    <h5>Términos Legales</h5>
+                    <!-- Título de la sección -->
+                    <ul class="list-unstyled">
+                        <!-- Lista sin estilos de viñetas -->
+                        <li><i class="bi bi-file-earmark-pdf-fill"></i> <a
+                                href="https://www.fcbarcelona.es/es/aviso-legal" class="text-white"> Leer Términos</a>
+                        </li>
+                        <!-- Elemento de lista con ícono y enlace a los términos legales -->
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <!-- Segunda columna: Redes Sociales -->
+                    <h5>Nuestras Redes</h5>
+                    <!-- Título de la sección -->
+                    <ul class="list-unstyled">
+                        <!-- Lista sin estilos de viñetas -->
+                        <li><i class="bi bi-instagram"></i> <a href="https://www.instagram.com/fcbarcelona/"
+                                class="text-white" target="_blank"> Instagram</a></li>
+                        <!-- Enlace a Instagram con ícono -->
+                        <li><i class="bi bi-facebook"></i> <a href="https://www.facebook.com/fcbarcelona/"
+                                class="text-white" target="_blank"> Facebook</a></li>
+                        <!-- Enlace a Facebook con ícono -->
+                        <li><i class="bi bi-tiktok"></i> <a href="https://www.tiktok.com/@fcbarcelona"
+                                class="text-white" target="_blank"> TikTok</a></li>
+                        <!-- Enlace a TikTok con ícono -->
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <!-- Tercera columna: Trabaja con Nosotros -->
+                    <h5>Trabaja con Nosotros</h5>
+                    <!-- Título de la sección -->
+                    <ul class="list-unstyled">
+                        <!-- Lista sin viñetas -->
+                        <li><i class="bi bi-briefcase-fill"></i> <a href="https://www.fcbarcelona.es/es/club/contacto"
+                                class="text-white">Ver Vacantes</a></li>
+                        <!-- Enlace a la sección de vacantes con ícono de portafolio -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Inclusión del script JavaScript personalizado para la funcionalidad del minijuego -->
+    <script src="ScriptWhoRya.js"></script>
+</body>
+<!-- Fin del cuerpo del documento -->
+</html>
+<!-- Fin del documento HTML -->

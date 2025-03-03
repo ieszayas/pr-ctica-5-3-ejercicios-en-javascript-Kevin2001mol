@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<!-- Define que el documento es HTML5 -->
+<html lang="es">
+<!-- El idioma principal es español -->
+<head>
+    <!-- Inicio de la sección head -->
+    <meta charset="UTF-8">
+    <!-- Codificación de caracteres en UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configuración para dispositivos móviles (responsive) -->
+    <title>FC Barcelona</title>
+    <!-- Título de la página -->
+    <link rel="stylesheet" href="parte1.css">
+    <!-- Enlace a la hoja de estilos personalizada -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Enlace a la hoja de estilos de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Enlace a la biblioteca de iconos de Bootstrap Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Preconexión para optimizar la carga de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Preconexión a Google Fonts con atributo crossorigin -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <!-- Enlace a la fuente "Dancing Script" desde Google Fonts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Inclusión del script de Bootstrap Bundle (incluye Popper.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <!-- Inclusión de la librería Moment.js para manejo de fechas -->
+</head>
+
+<body>
+    <!-- Inicio del cuerpo del documento -->
+    <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #A2214B;" data-bs-theme="dark">
+        <!-- Barra de navegación con expansión en pantallas grandes, posición fija y tema oscuro -->
+        <div class="container-fluid">
+            <!-- Contenedor fluido para la navbar -->
+            <div class="d-flex align-items-center">
+                <!-- Contenedor flexible para alinear el logo y el nombre -->
+                <img src="../media/Barcelona-logo-escudo.png" alt="Logo Barcelona" width="30" height="30"
+                    class="d-inline-block align-text-top me-2">
+                <!-- Imagen del logo con tamaño fijo y margen a la derecha -->
+                <span class="navbar-brand mb-0 h1">FC Barcelona</span>
+                <!-- Texto de la marca en la navbar -->
+            </div>
+
+            <!-- Botón para colapsar el menú en dispositivos pequeños -->
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                <!-- Icono del botón de menú colapsable -->
+            </button>
+
+            <!-- Menú desplegable (colapsable) -->
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-3">
+                    <!-- Lista de elementos del menú con margen a la izquierda -->
+                    <li class="nav-item">
+                        <!-- Elemento de menú: Inicio -->
+                        <a class="nav-link active" aria-current="page" href="webparte1.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Elemento de menú: Plantilla (ancla en la página de inicio) -->
+                        <a class="nav-link" href="#tabla-plantilla">Plantilla</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Elemento de menú: Tienda Oficial -->
+                        <a class="nav-link" href="https://store.fcbarcelona.com/es/">Tienda Oficial</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <!-- Elemento de menú con submenú: Club -->
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Club
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- Lista interna del dropdown -->
+                            <li><a class="dropdown-item" href="https://www.fcbarcelonanoticias.com/">Actualidad</a></li>
+                            <li><a class="dropdown-item" href="webParte1SegundaPagina.html">Ser Culer</a></li>
+                            <li><a class="dropdown-item" href="LaMasia.html">La Masía</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Nuevo botón de Accesibilidad -->
+                    <li class="nav-item dropdown">
+                        <!-- Elemento de menú: Accesibilidad -->
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Accesibilidad
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- Lista de opciones de accesibilidad -->
+                            <li><a class="dropdown-item" href="#" onclick="readContent()">Leer pantalla</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="stopReading()">Detener lectura</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- Elementos alineados a la derecha en la navbar -->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <!-- Elemento de menú: Barra de búsqueda -->
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                            <!-- Campo de búsqueda -->
+                            <button class="btn btn-outline-light" type="submit">Buscar</button>
+                            <!-- Botón de búsqueda -->
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Elemento de menú: Enlace "Mi cuenta" -->
+                        <a class="icon-link" href="webParte1SegundaPagina.html">
+                            <i class="bi bi-person"></i>
+                            <!-- Ícono de usuario -->
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Título principal de la página -->
+    <h1 class="firma">Mes que un club</h1>
+
+    <!-- Carrousel -->
+    <div id="carouselExample" class="carousel slide">
+        <!-- Contenedor del carrusel de Bootstrap -->
+        <div class="carousel-inner">
+            <!-- Contenedor de las imágenes del carrusel -->
+            <div class="carousel-item active">
+                <!-- Primer elemento del carrusel, activo por defecto -->
+                <img src="../media/LamineGoty.webp" class="d-block w-100" alt="Lamine con el MVP" data-bs-toggle="modal"
+                    data-bs-target="#imageModal"
+                    onclick="showImage(this, 'Lamine con el MVP después del memorable partido contra el BvB')">
+                <!-- Imagen del carrusel; al hacer clic se muestra en el modal -->
+            </div>
+            <div class="carousel-item">
+                <!-- Segundo elemento del carrusel -->
+                <img src="../media/CelebraciónBarsa.webp" class="d-block w-100" alt="Piña celebrando"
+                    data-bs-toggle="modal" data-bs-target="#imageModal"
+                    onclick="showImage(this, 'Jugadores del Fc Barcelona celebrando el último gol marcado en el partido conta el Borussia Dortmund.')">
+            </div>
+            <div class="carousel-item">
+                <!-- Tercer elemento del carrusel -->
+                <img src="../media/CeleBarsa.webp" class="d-block w-100"
+                    alt="Lamine y Ferrán celebrando el gol de Ferrán" data-bs-toggle="modal"
+                    data-bs-target="#imageModal"
+                    onclick="showImage(this, 'Lamine y Ferrán celebrando el gol de Ferrán Torres en el Westfalenstadion.')">
+            </div>
+            <div class="carousel-item">
+                <!-- Cuarto elemento del carrusel -->
+                <img src="../media/PipulBarsa.webp" class="d-block w-100" alt="Afición animando" data-bs-toggle="modal"
+                    data-bs-target="#imageModal"
+                    onclick="showImage(this, 'Afición animando al Fc Barcelona despues de la victoria en la supercopa del equipo blaugrana')">
+            </div>
+        </div>
+        <!-- Botones de navegación del carrusel -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <!-- Icono para ir a la imagen anterior -->
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <!-- Icono para ir a la siguiente imagen -->
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Modal para imagen ampliada -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <!-- Modal de Bootstrap para mostrar la imagen en grande -->
+        <div class="modal-dialog modal-lg">
+            <!-- Diálogo modal de tamaño grande -->
+            <div id="modal-content" class="modal-content">
+                <!-- Contenedor del contenido del modal -->
+                <div class="modal-body">
+                    <!-- Cuerpo del modal -->
+                    <img id="modalImage" src="" class="d-block w-100" alt="Imagen ampliada">
+                    <!-- Imagen que se actualizará dinámicamente en el modal -->
+                    <p id="modalText" class="mt-3"></p>
+                    <!-- Texto descriptivo debajo de la imagen en el modal -->
+                </div>
+                <div class="modal-footer">
+                    <!-- Pie del modal con botones de acción -->
+                    <button type="button" class="btn btn-link" data-bs-dismiss="modal"
+                        style="text-decoration: none;">Cerrar</button>
+                    <!-- Botón para cerrar el modal -->
+                    <button type="button" class="btn" id="nextImageButton" onclick="nextImage()">Pasar imagen</button>
+                    <!-- Botón para pasar a la siguiente imagen del carrusel -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Párrafo descriptivo sobre la historia y valores del FC Barcelona -->
+    <p>
+        El Fútbol Club Barcelona, fundado el 29 de noviembre de 1899 por un grupo de jóvenes liderados por el suizo
+        Hans
+        Gamper, es una institución deportiva y cultural que trasciende el mundo del fútbol. Conocido como "Més que
+        un
+        club" ("Más que un club"), el Barça no solo es reconocido por sus logros deportivos, sino también por su
+        estrecho vínculo con la sociedad catalana, sus valores de identidad, democracia y compromiso social. A lo
+        largo
+        de su historia, el club ha sido un símbolo de resistencia cultural y un vehículo de expresión para millones
+        de
+        personas.
+        <br><br>
+        En el ámbito deportivo, el FC Barcelona es uno de los equipos más laureados del mundo, acumulando títulos
+        nacionales como LaLiga y la Copa del Rey, así como prestigiosos campeonatos internacionales, entre ellos
+        varias
+        ediciones de la UEFA Champions League. En su palmarés también destacan éxitos en otras disciplinas
+        deportivas
+        como el baloncesto, el balonmano y el hockey sobre patines, lo que lo convierte en un club verdaderamente
+        polideportivo.
+        <br><br>
+        Jugadores legendarios como Johan Cruyff, Lionel Messi, Xavi Hernández, Andrés Iniesta y Ronaldinho han
+        dejado
+        una huella imborrable en la historia del club y del fútbol mundial, convirtiendo al Barça en un referente de
+        un
+        estilo de juego único, basado en la posesión, la creatividad y la ofensiva. Este enfoque, consolidado
+        durante la
+        etapa dorada del club bajo la dirección de entrenadores como Cruyff, Guardiola y Luis Enrique, ha sido
+        fundamental para crear una identidad futbolística inconfundible.
+        <br><br>
+        Además, el FC Barcelona está profundamente comprometido con iniciativas sociales y culturales a través de su
+        Fundación, promoviendo la inclusión, la igualdad y el desarrollo educativo a nivel global. Con su sede en el
+        emblemático Camp Nou, el estadio más grande de Europa, y una afición fiel que abarca todos los rincones del
+        planeta, el Barça no solo es un club deportivo, sino un auténtico fenómeno global que inspira a generaciones
+        con
+        sus valores y su pasión por el deporte.
+    </p>
+    <br><br><br><br>
+
+    <!-- Sección de la plantilla actual -->
+    <h1 id="tabla-plantilla">Nuestra plantilla actual</h1>
+    <br><br>
+    <div class="search-container">
+        <!-- Contenedor para el buscador -->
+        <form class="d-flex" id="searchForm">
+            <!-- Formulario de búsqueda con disposición flexible -->
+            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" id="searchInput">
+            <!-- Campo de búsqueda -->
+            <button class="btn btn-outline-light" type="submit">Buscar jugador</button>
+            <!-- Botón para enviar la búsqueda -->
+        </form>
+    </div>
+
+    <div class="container mt-4">
+        <!-- Contenedor para la tabla de jugadores con margen superior -->
+        <div class="table-responsive">
+            <!-- Contenedor responsivo para la tabla -->
+            <table class="table table-striped table-hover table-bordered" id="playersTable">
+                <!-- Tabla con estilos de Bootstrap: rayada, hover y bordes -->
+                <thead class="table-dark">
+                    <!-- Encabezado de la tabla con fondo oscuro -->
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Posición</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Nacionalidad</th>
+                        <th scope="col">Contrato</th>
+                        <th scope="col">Valor de Mercado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Cuerpo de la tabla con los datos de los jugadores -->
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Marc-André ter Stegen</td>
+                        <td>Portero</td>
+                        <td>32</td>
+                        <td>Alemania</td>
+                        <td>30/06/2028</td>
+                        <td>15,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">13</th>
+                        <td>Iñaki Peña</td>
+                        <td>Portero</td>
+                        <td>25</td>
+                        <td>España</td>
+                        <td>30/06/2026</td>
+                        <td>10,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">25</th>
+                        <td>Wojciech Szczesny</td>
+                        <td>Portero</td>
+                        <td>34</td>
+                        <td>Polonia</td>
+                        <td>30/06/2025</td>
+                        <td>1,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">26</th>
+                        <td>Ander Astralaga</td>
+                        <td>Portero</td>
+                        <td>20</td>
+                        <td>España</td>
+                        <td>30/06/2026</td>
+                        <td>1,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Pau Cubarsí</td>
+                        <td>Defensa central</td>
+                        <td>17</td>
+                        <td>España</td>
+                        <td>30/06/2027</td>
+                        <td>70,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>Ronald Araujo</td>
+                        <td>Defensa central</td>
+                        <td>25</td>
+                        <td>Uruguay / España</td>
+                        <td>30/06/2026</td>
+                        <td>55,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">15</th>
+                        <td>Andreas Christensen</td>
+                        <td>Defensa central</td>
+                        <td>28</td>
+                        <td>Dinamarca</td>
+                        <td>30/06/2026</td>
+                        <td>20,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">24</th>
+                        <td>Eric García</td>
+                        <td>Defensa central</td>
+                        <td>24</td>
+                        <td>España</td>
+                        <td>30/06/2026</td>
+                        <td>18,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>Iñigo Martínez</td>
+                        <td>Defensa central</td>
+                        <td>33</td>
+                        <td>España</td>
+                        <td>30/06/2025</td>
+                        <td>5,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">36</th>
+                        <td>Sergi Domínguez</td>
+                        <td>Defensa central</td>
+                        <td>19</td>
+                        <td>España</td>
+                        <td>30/06/2027</td>
+                        <td>1,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Alejandro Balde</td>
+                        <td>Lateral izquierdo</td>
+                        <td>21</td>
+                        <td>España / República Dominicana</td>
+                        <td>30/06/2028</td>
+                        <td>50,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">35</th>
+                        <td>Gerard Martín</td>
+                        <td>Lateral izquierdo</td>
+                        <td>22</td>
+                        <td>España</td>
+                        <td>30/06/2025</td>
+                        <td>5,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">23</th>
+                        <td>Jules Koundé</td>
+                        <td>Lateral derecho</td>
+                        <td>26</td>
+                        <td>Francia / Benín</td>
+                        <td>30/06/2027</td>
+                        <td>60,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">32</th>
+                        <td>Héctor Fort</td>
+                        <td>Lateral derecho</td>
+                        <td>18</td>
+                        <td>España</td>
+                        <td>30/06/2026</td>
+                        <td>10,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">17</th>
+                        <td>Marc Casadó</td>
+                        <td>Pivote</td>
+                        <td>21</td>
+                        <td>España</td>
+                        <td>30/06/2028</td>
+                        <td>30,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">28</th>
+                        <td>Marc Bernal</td>
+                        <td>Pivote</td>
+                        <td>17</td>
+                        <td>España</td>
+                        <td>30/06/2026</td>
+                        <td>5,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8</th>
+                        <td>Pedri</td>
+                        <td>Mediocentro</td>
+                        <td>22</td>
+                        <td>España</td>
+                        <td>30/06/2026</td>
+                        <td>100,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6</th>
+                        <td>Gavi</td>
+                        <td>Mediocentro</td>
+                        <td>20</td>
+                        <td>España</td>
+                        <td>30/06/2026</td>
+                        <td>80,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">16</th>
+                        <td>Fermín López</td>
+                        <td>Mediocentro</td>
+                        <td>21</td>
+                        <td>España</td>
+                        <td>30/06/2029</td>
+                        <td>50,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">21</th>
+                        <td>Frenkie de Jong</td>
+                        <td>Mediocentro</td>
+                        <td>27</td>
+                        <td>Países Bajos</td>
+                        <td>30/06/2026</td>
+                        <td>45,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">20</th>
+                        <td>Dani Olmo</td>
+                        <td>Mediocentro ofensivo</td>
+                        <td>26</td>
+                        <td>España</td>
+                        <td>30/06/2030</td>
+                        <td>60,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">14</th>
+                        <td>Pablo Torre</td>
+                        <td>Mediocentro ofensivo</td>
+                        <td>21</td>
+                        <td>España</td>
+                        <td>30/06/2026</td>
+                        <td>7,50 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">11</th>
+                        <td>Raphinha</td>
+                        <td>Extremo izquierdo</td>
+                        <td>28</td>
+                        <td>Brasil / Italia</td>
+                        <td>30/06/2027</td>
+                        <td>80,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">10</th>
+                        <td>Ansu Fati</td>
+                        <td>Extremo izquierdo</td>
+                        <td>22</td>
+                        <td>España / Guinea-Bissau</td>
+                        <td>30/06/2027</td>
+                        <td>10,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">19</th>
+                        <td>Lamine Yamal</td>
+                        <td>Extremo derecho</td>
+                        <td>17</td>
+                        <td>España / Guinea Ecuatorial</td>
+                        <td>30/06/2026</td>
+                        <td>180,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">7</th>
+                        <td>Ferran Torres</td>
+                        <td>Extremo derecho</td>
+                        <td>24</td>
+                        <td>España</td>
+                        <td>30/06/2027</td>
+                        <td>28,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">9</th>
+                        <td>Robert Lewandowski</td>
+                        <td>Delantero centro</td>
+                        <td>36</td>
+                        <td>Polonia</td>
+                        <td>30/06/2026</td>
+                        <td>15,00 mill. €</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">18</th>
+                        <td>Pau Víctor</td>
+                        <td>Delantero centro</td>
+                        <td>23</td>
+                        <td>España</td>
+                        <td>30/06/2029</td>
+                        <td>5,00 mill. €</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+      
+    <!-- Toast para notificaciones (por ejemplo, "Jugador no encontrado") -->
+    <div class="toast align-items-center text-white bg-danger border-0" id="toastLimpiar" role="alert"
+        aria-live="assertive" aria-atomic="true" style="position: fixed; top: 20px; right: 20px; z-index: 1050;">
+        <!-- Contenedor del toast con posicionamiento fijo -->
+        <div class="d-flex">
+            <!-- Contenedor flexible para alinear el contenido del toast -->
+            <div class="toast-body">
+                Jugador no encontrado.
+                <!-- Mensaje predeterminado del toast -->
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+                <!-- Botón para cerrar el toast -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección para la tabla de Top 10 Goles y Asistencias -->
+    <div class="container my-4">
+        <!-- Contenedor con margen vertical -->
+        <h1 id="tabla-plantilla">Top 10 Goles y Asistencias</h1>
+        <!-- Título de la sección -->
+        <div id="topPlayersTableContainer"></div>
+        <!-- Contenedor vacío donde se agregarán los datos dinámicamente -->
+    </div>
+
+    <!-- Sección para la tabla de jugadores (datos dinámicos) -->
+    <div class="container mt-4">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered" id="jugadoresTable">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Goles</th>
+                        <th scope="col">Asistencias</th>
+                        <th scope="col">Partidos</th>
+                    </tr>
+                </thead>
+                <tbody id="jugadores10">
+                    <!-- Las filas se agregarán dinámicamente mediante JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Sección para el gráfico de Evolución del Valor de Mercado -->
+    <div class="container my-4">
+        <h1 id="tabla-plantilla">Evolución del Valor de Mercado (últimos 5 años)</h1>
+        <!-- Título de la sección -->
+        <canvas id="marketValueChart"></canvas>
+        <!-- Canvas donde se dibujará el gráfico con Chart.js -->
+    </div>
+
+    <!-- Espaciado vertical adicional -->
+    <br><br><br>
+    <footer class="bg-dark text-white py-4">
+        <!-- Pie de página con fondo oscuro, texto blanco y padding vertical -->
+        <div class="container">
+            <!-- Contenedor para centrar el contenido del footer -->
+            <div class="row">
+                <!-- Fila para dividir el footer en columnas -->
+                <div class="col-md-4">
+                    <!-- Primera columna: Términos Legales -->
+                    <h5>Términos Legales</h5>
+                    <ul class="list-unstyled">
+                        <!-- Lista sin viñetas -->
+                        <li>
+                            <i class="bi bi-file-earmark-pdf-fill"></i>
+                            <a href="https://www.fcbarcelona.es/es/aviso-legal" class="text-white"> Leer Términos</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <!-- Segunda columna: Redes Sociales -->
+                    <h5>Nuestras Redes</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <i class="bi bi-instagram"></i>
+                            <a href="https://www.instagram.com/fcbarcelona/" class="text-white" target="_blank"> Instagram</a>
+                        </li>
+                        <li>
+                            <i class="bi bi-facebook"></i>
+                            <a href="https://www.facebook.com/fcbarcelona/" class="text-white" target="_blank"> Facebook</a>
+                        </li>
+                        <li>
+                            <i class="bi bi-tiktok"></i>
+                            <a href="https://www.tiktok.com/@fcbarcelona" class="text-white" target="_blank"> TikTok</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <!-- Tercera columna: Trabaja con Nosotros -->
+                    <h5>Trabaja con Nosotros</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <i class="bi bi-briefcase-fill"></i>
+                            <a href="https://www.fcbarcelona.es/es/club/contacto" class="text-white">Ver Vacantes</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Inclusión de Chart.js y scripts adicionales -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Script de Chart.js para gráficos -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <!-- Inclusión de jQuery (versión slim) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <!-- Inclusión de Popper.js, necesario para Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Inclusión de Bootstrap JS (versión 4.3.1) -->
+    <script src="ScriptPrincipal.js"></script>
+    <!-- Inclusión del script principal personalizado -->
+</body>
+<!-- Fin del cuerpo del documento -->
+</html>
