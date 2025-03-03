@@ -1,287 +1,274 @@
+/* ============================= */
+/* Fondo y estilo base del body */
+/* ============================= */
+
 /* Establecer un gradiente de fondo para la página */
 body {
-    background-image: linear-gradient(to right, #A2214B, #00529F);
-    background-size: cover;
-    /* Asegura que el gradiente cubra toda la página */
-    background-position: center;
-    /* Centra el gradiente */
-    height: 100vh;
-    /* Asegura que el fondo cubra toda la altura de la ventana */
-    margin: 0;
-    /* Elimina márgenes por defecto */
-    color: #ffffff !important;
-
+    background-image: linear-gradient(to right, #A2214B, #00529F); /* Gradiente de izquierda a derecha */
+    background-size: cover; /* Asegura que el gradiente cubra toda la página */
+    background-position: center; /* Centra el gradiente en la página */
+    height: 100vh; /* La altura del fondo ocupa el 100% de la ventana */
+    margin: 0; /* Elimina márgenes por defecto */
+    color: #ffffff !important; /* Color de texto blanco, forzado con !important */
 }
 
+/* ============================= */
+/* Estilos de la Navbar */
+/* ============================= */
+
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1030;
-    /* Asegura que el navbar quede por encima de otros elementos */
-    background-color: #A2214B;
-    /* Asegúrate de mantener el color de fondo */
+    position: fixed; /* Posición fija para que se mantenga en la parte superior */
+    top: 0; /* Ubicación en la parte superior */
+    left: 0; /* Alineado a la izquierda */
+    right: 0; /* Alineado a la derecha */
+    z-index: 1030; /* Asegura que el navbar quede por encima de otros elementos */
+    background-color: #A2214B; /* Color de fondo fijo para el navbar */
 }
 
 /* Cambiar color de texto de los enlaces en el menú */
 .navbar-nav .nav-link {
-    color: #ffffff !important;
+    color: #ffffff !important; /* Color blanco para los enlaces, forzado */
 }
 
-/* Cambiar color al pasar el ratón por encima */
+/* Cambiar color al pasar el ratón por encima de los enlaces del menú */
 .navbar-nav .nav-link:hover {
-    color: #DEB405 !important;
+    color: #DEB405 !important; /* Al hacer hover, cambia el color a dorado */
 }
+
+/* ============================= */
+/* Estilos para el Dropdown (Menú Desplegable) */
+/* ============================= */
 
 /* Cambiar el color de fondo del menú desplegable */
 .dropdown-menu {
-    background-color: #A2214B !important;
-    /* El mismo color de fondo que el navbar */
+    background-color: #A2214B !important; /* Fondo igual al navbar */
 }
 
 /* Cambiar el color de las fuentes de los elementos del menú desplegable a dorado */
 .dropdown-menu .dropdown-item {
-    background-color: #A2214B !important;
-    /* Fondo igual que el navbar */
-    color: #ffffff !important;
-    /* Texto dorado */
+    background-color: #A2214B !important; /* Fondo igual que el navbar */
+    color: #ffffff !important; /* Texto en blanco (aunque el comentario indica dorado, se aplica blanco) */
 }
 
-/* Cambiar el color de las fuentes a blanco cuando el ratón pasa por encima, manteniendo el fondo */
+/* Cambiar el color de las fuentes a blanco al pasar el ratón, manteniendo el fondo */
 .dropdown-menu .dropdown-item:hover {
-    color: #DEB405 !important;
-    /* Texto blanco al pasar el ratón */
-    background-color: #A2214B !important;
-    /* Mantener el fondo igual al pasar el ratón */
+    color: #DEB405 !important; /* Cambia el texto a dorado al hacer hover */
+    background-color: #A2214B !important; /* Mantiene el fondo igual al hacer hover */
 }
+
+/* ============================= */
+/* Estilos para los Iconos y enlaces personalizados */
+/* ============================= */
 
 .icon-link {
-    display: flex;
-    align-items: center;
-    color: white;
-    /* Color dorado del icono y texto */
-    text-decoration: none;
-    /* Elimina el subrayado */
+    display: flex; /* Se usa flexbox para alinear icono y texto */
+    align-items: center; /* Alineación vertical centrada */
+    color: white; /* Color blanco para el icono y texto */
+    text-decoration: none; /* Sin subrayado en el enlace */
 }
 
 .icon-link:hover {
-    color: #DEB405;
-    /* Cambiar a blanco al pasar el ratón */
+    color: #DEB405; /* Al pasar el ratón, cambia a dorado */
 }
 
 .icon-link i {
-    font-size: 1.5rem;
-    /* Tamaño del icono */
-    margin-right: 5px;
-    /* Espacio entre icono y texto */
+    font-size: 1.5rem; /* Tamaño de la fuente del icono */
+    margin-right: 5px; /* Espacio a la derecha entre el icono y el texto */
 }
 
-/* Espaciado entre elementos del navbar derecho */
-.navbar-nav.ms-auto>.nav-item+.nav-item {
-    margin-left: 20px;
+/* ============================= */
+/* Espaciado en el Navbar derecho */
+/* ============================= */
+/*selecciona todos los elementos con la clase .nav-item que son hijos directos (por el selector >)
+ del contenedor con las clases .navbar-nav.ms-auto y que tienen otro .nav-item inmediatamente anterior 
+ (por el selector de hermanos adyacentes +).*/
+.navbar-nav.ms-auto > .nav-item + .nav-item {
+    margin-left: 20px; /* Espacio de 20px entre elementos consecutivos en el lado derecho */
 }
 
-/* Estilo del botón Buscar */
+/* ============================= */
+/* Estilos del Botón Buscar */
+/* ============================= */
+
 .btn-outline-light {
-    color: #DEB405;
-    /* Color dorado del texto por defecto */
-    border-color: #DEB405;
-    /* Borde dorado */
+    color: #DEB405; /* Color dorado para el texto por defecto */
+    border-color: #DEB405; /* Borde dorado */
+    transition: all 0.3s ease; /* Suaviza la transición al hacer hover */
 }
 
-/* Estilo por defecto del botón Buscar */
-.btn-outline-light {
-    color: #DEB405;
-    /* Color dorado del texto por defecto */
-    border-color: #DEB405;
-    /* Borde dorado */
-    transition: all 0.3s ease;
-    /* Suaviza las transiciones al hacer hover */
-}
-
-/* Cambiar color al hacer hover */
 .btn-outline-light:hover {
-    color: #ffffff !important;
-    /* Cambia el texto a blanco */
-    background-color: #DEB405 !important;
-    /* Cambia el fondo a dorado */
-    border-color: #DEB405 !important;
-    /* Mantiene el borde dorado */
+    color: #ffffff !important; /* Al hacer hover, el texto se vuelve blanco */
+    background-color: #DEB405 !important; /* El fondo se vuelve dorado */
+    border-color: #DEB405 !important; /* Se mantiene el borde dorado */
 }
 
-/* DESPUES DE NAV */
+/* ============================= */
+/* Estilos de Títulos y Textos (DESPUES DE NAV) */
+/* ============================= */
+
 .firma {
-    font-family: 'Dancing Script', 'Pacifico', 'Brush Script MT';
-    font-size: 5.5rem;
-    /*Ajusta el tamaño según lo necesites */
-    color: #DEB405;
-    /* Ejemplo de color dorado */
-    text-align: center;
-    /* Alineación del texto */
+    font-family: 'Dancing Script', 'Pacifico', 'Brush Script MT'; /* Fuente cursiva para la firma */
+    font-size: 5.5rem; /* Tamaño de fuente grande */
+    color: #DEB405; /* Color dorado */
+    text-align: center; /* Texto centrado */
 }
 
 p {
-    text-align: center;
-    color: #ffffff;
-    max-width: 80vw;
-    margin: 0 auto;
-    /* Centra el párrafo horizontalmente */
+    text-align: center; /* Párrafos centrados horizontalmente */
+    color: #ffffff; /* Texto en blanco */
+    max-width: 80vw; /* Ancho máximo del 80% de la ventana */
+    margin: 0 auto; /* Centrado automático de los párrafos */
 }
 
 h1 {
-    font-size: 3.5rem;
-    /*Ajusta el tamaño según lo necesites */
-    color: #DEB405 !important;
-    /* Ejemplo de color dorado */
-    text-align: center;
-    /* Alineación del texto */
+    font-size: 3.5rem; /* Tamaño del título */
+    color: #DEB405 !important; /* Títulos en dorado */
+    text-align: center; /* Títulos centrados */
 }
 
-/*CARROUSEL*/
+/* ============================= */
+/* Estilos del Carrousel */
+/* ============================= */
 
 /* Ajuste del tamaño del carrusel */
 #carouselExample {
-    width: 80%;
-    /* El carrusel ocupa un 80% del ancho de su contenedor */
-    max-width: 1000px;
-    /* Máximo tamaño de ancho para evitar que se estire mucho */
-    height: 60vh;
-    /* Ocupa un 60% de la altura de la ventana */
-    margin: 0 auto;
-    /* Centrado en la página */
+    width: 80%; /* Ocupa el 80% del ancho de su contenedor */
+    max-width: 1000px; /* Ancho máximo de 1000px para evitar estiramientos */
+    height: 60vh; /* Altura del carrusel: 60% de la altura de la ventana */
+    margin: 0 auto; /* Centrado horizontal */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
 }
 
-/* Texto debajo de la imagen (en negro) */
+/* Estilo del texto debajo de la imagen en el modal */
 #modalText {
-    color: #000000;
-    /* Letras en negro */
+    color: #000000; /* Texto en negro */
 }
 
 /* Ajustes para las imágenes dentro del carrusel */
 .carousel-inner .carousel-item img {
-    width: 70%;
-    height: 50vh;
-    object-fit: contain;
-    /* Hace que la imagen se ajuste sin perder la proporción */
+    width: 70%; /* Las imágenes ocupan el 70% del ancho del carrusel */
+    height: 50vh; /* Altura de las imágenes: 50% de la ventana */
+    object-fit: contain; /* Ajusta la imagen manteniendo su proporción */
 }
 
-/* Estilos para la imagen en el modal */
+/* ============================= */
+/* Estilos del Modal (imagen ampliada) */
+/* ============================= */
+
 #modalImage {
-    max-width: 120vw;
-    /* Establece el ancho máximo al 50% */
-    margin: 0 auto;
-    /* Centra la imagen */
-    display: block;
-    /* Asegura que la imagen se comporte como un bloque */
+    max-width: 120vw; /* Ancho máximo de la imagen en el modal */
+    margin: 0 auto; /* Centrar la imagen */
+    display: block; /* Se comporta como bloque */
 }
 
-/* Estilo para centrar el modal en la pantalla */
+/* Centrar el modal en la pantalla */
 .modal-dialog {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    /* Asegura que el modal se alinee verticalmente */
+    min-height: 100vh; /* Altura mínima para alinear verticalmente */
 }
 
-/* Botón con letras en blanco */
+/* ============================= */
+/* Estilos del Botón "Pasar imagen" en el modal */
+/* ============================= */
+
 #nextImageButton {
-    background-color: #004B87;
-    /* Azulgrana */
-    color: #ffffff !important;
-    /* Letras blancas */
-    border: none;
-    /* Sin borde */
-    text-decoration: none;
-    /* Sin subrayado */
-    padding: 10px 20px;
-    /* Espaciado interno */
-    font-size: 16px;
-    /* Tamaño de la fuente */
-    border-radius: 5px;
-    /* Bordes redondeados */
-    cursor: pointer;
-    /* Cambia el cursor cuando pasa por encima */
+    background-color: #004B87; /* Fondo azulgrana */
+    color: #ffffff !important; /* Texto en blanco */
+    border: none; /* Sin borde */
+    text-decoration: none; /* Sin subrayado */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor pointer al pasar el ratón */
 }
 
 #nextImageButton:hover {
-    background-color: #0059B3;
-    /* Un tono más oscuro de azulgrana al pasar el ratón */
+    background-color: #0059B3; /* Fondo más oscuro al hacer hover */
 }
 
-
-/**BUSCADOR*/
+/* ============================= */
+/* Estilos para el Buscador */
+/* ============================= */
 
 .search-container {
     display: flex;
-    /* Usar flexbox para centrar */
-    justify-content: center;
-    /* Centrar horizontalmente */
-    align-items: center;
-    /* Centrar verticalmente si es necesario */
-    height: 20vh;
-    /* Opcional: para centrar verticalmente en toda la página */
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical si es necesario */
+    height: 20vh; /* Altura para centrar el contenido en la página */
 }
 
-/*Tabla*/
+/* ============================= */
+/* Estilos para la Tabla de Jugadores */
+/* ============================= */
+
+/* Resalta la fila encontrada en el buscador, aplicando el color a toda la fila y celdas */
 #playersTable tr.highlight-row,
 #playersTable tr.highlight-row td,
 #playersTable tr.highlight-row th {
     background-color: yellow !important;
 }
 
-
+/* Contenedor de la tabla con ancho máximo y centrado */
 .table-container {
     max-width: 80vw;
     margin: 0 auto;
-
 }
+
+/* ============================= */
+/* Estilos para la Sección de Login */
+/* ============================= */
 
 .login {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 25px;
-    /* Ajusta este valor según lo que necesites para reducir el espacio */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    margin-top: 25px; /* Margen superior para separar del contenido superior */
 }
 
 .login img {
-    width: 40vw;
-    height: 35vh;
-    object-fit: cover;
-    display: block;
-    /* Asegura que la imagen se trate como un bloque */
-    margin: 0;
-    /* Elimina cualquier margen automático */
-    margin-bottom: 2.5%;
-    padding: 0;
-    /* Elimina cualquier padding que pueda estar aplicado */
+    width: 40vw; /* Ancho relativo al viewport */
+    height: 35vh; /* Altura relativa al viewport */
+    object-fit: cover; /* Ajusta la imagen para cubrir el espacio */
+    display: block; /* Se comporta como bloque */
+    margin: 0; /* Sin margen */
+    margin-bottom: 2.5%; /* Pequeño margen inferior */
+    padding: 0; /* Sin padding */
 }
 
+/* ============================= */
+/* Clases de Uso Común */
+/* ============================= */
+
+/* Clase para establecer un tamaño uniforme */
 .uniform-size {
-    width: 80%;
-    /* Ajusta al 80% del tamaño del contenedor */
-    max-width: 300px;
-    /* Tamaño máximo en píxeles */
-    height: auto;
-    /* Mantiene la proporción */
+    width: 80%; /* Ocupa el 80% del contenedor */
+    max-width: 300px; /* Ancho máximo de 300px */
+    height: auto; /* Mantiene la proporción de la imagen */
 }
 
-/* Modal - Estilo básico */
+/* ============================= */
+/* Estilos para el Modal (texto básico) */
+/* ============================= */
+
+/* Estilo básico para párrafos dentro de un modal anidado */
 div div div p {
-    text-align: center;
-    color: #FFEB3B;
+    text-align: center; /* Centrar el texto */
+    color: #FFEB3B; /* Texto en color amarillo claro */
 }
 
+/* Cambiar el color del texto en elementos con id "blanco" dentro de card-text */
 .card-text#blanco {
     color: white !important;
 }
 
-/*RELOJ*/
+/* ============================= */
+/* Estilos para el Reloj (Progress-Bar) */
+/* ============================= */
+
 #progressBar {
     width: 90%;
     margin: 10px auto;
@@ -293,48 +280,34 @@ div div div p {
     height: 100%;
     text-align: right;
     padding: 0 10px;
-    line-height: 22px;
-    /* same as #progressBar height if we want text middle aligned */
+    line-height: 22px; /* Alinea el texto verticalmente */
     width: 0;
     background-color: #CBEA00;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
 }
 
-/* Do not take in account */
+/* ============================= */
+/* Estilos para la Imagen Difuminada */
+/* ============================= */
 
-a.solink {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    text-align: center;
-    background: #f3f5f6;
-    color: #cfd6d9;
-    border: 1px solid #cfd6d9;
-    line-height: 30px;
-    text-decoration: none;
-    transition: all .3s;
-    z-index: 999
-}
-
-a.solink::first-letter {
-    text-transform: capitalize
-}
-
-a.solink:hover {
-    color: #428bca;
-}
-
-/*imagen difuminada*/
 #player-image {
     width: 200px;
     height: 200px;
-    filter: blur(20px);
-    transition: filter 0.5s;
+    filter: blur(20px); /* Aplica desenfoque a la imagen */
+    transition: filter 0.5s; /* Transición suave para el desenfoque */
 }
 
+/* ============================= */
+/* Estilos para Pistas (Hints) */
+/* ============================= */
+
 .hint {
-    margin-top: 10px;
+    margin-top: 10px; /* Margen superior para separar cada pista */
 }
+
+/* ============================= */
+/* Estilos para Contenedores Centrados */
+/* ============================= */
 
 .center-container {
     display: flex;
@@ -343,11 +316,12 @@ a.solink:hover {
     height: 100%;
 }
 
+/* Estilos para un contenedor centrado con organización en columna y espacio entre elementos */
 .container2 {
-    text-align: center; /* Centra el texto y los elementos dentro de la caja */
+    text-align: center; /* Centra el texto y los elementos */
     display: flex;
-    flex-direction: column; /* Coloca los elementos en columna */
-    justify-content: center; /* Centra los elementos verticalmente */
-    align-items: center; /* Centra los elementos horizontalmente */
-    gap: 20px; /* Agrega espacio entre los elementos */
+    flex-direction: column; /* Organiza los elementos en columna */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    gap: 20px; /* Espacio de 20px entre cada elemento */
 }
