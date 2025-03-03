@@ -50,32 +50,41 @@
 
         window.onload = startGame;
 
-        function showToast() {
+        function showToast(message) {
             const toastElement = document.getElementById('toastLimpiar');
+            const toastBody = toastElement.querySelector('.toast-body');
+            toastBody.textContent = message;
             const toast = new bootstrap.Toast(toastElement);
             toast.show();
         }
+        
 
         function checkGuess() {
+            // Si el botón de "Nuevo Juego" está visible, significa que ya se adivinó el jugador o se acabaron los intentos.
+            if (document.getElementById("new-game").style.display !== "none") {
+                 showToast("Pulse en Nuevo Juego para jugar otra vez");
+                 return;
+            }
+        
             if (attempts <= 0) return;
-
+        
             let guess = document.getElementById("guess-input").value.trim();
             let foundPlayer = players.find(p => p.name.toLowerCase() === guess.toLowerCase());
-
+        
             if (guessedPlayers.includes(guess.toLowerCase())) {
-                showToast(); // Mostrar el toast
+                showToast("¡Ya has probado con este jugador!");
                 return;
             }
-
+        
             if (!foundPlayer) {
-                alert("Jugador no encontrado en la lista.");
+                showToast("Ese jugador no pertenece al FC Barcelona");
                 return;
             }
-
+        
             guessedPlayers.push(guess.toLowerCase());
             attempts--;
             document.getElementById("attempts").innerText = `Intentos restantes: ${attempts}`;
-
+        
             if (foundPlayer.name === mysteryPlayer.name) {
                 document.getElementById("player-image").style.filter = "blur(0px)";
                 document.getElementById("hints").innerHTML = `<h2>¡Correcto! Era ${mysteryPlayer.name}.</h2>`;
@@ -90,7 +99,7 @@
                 } else {
                     ageHint = '✅';
                 }
-
+        
                 let numberHint = '';
                 if (foundPlayer.number < mysteryPlayer.number) {
                     numberHint = '⬆️';
@@ -99,18 +108,18 @@
                 } else {
                     numberHint = '✅';
                 }
-
+        
                 let hints = `<div class='hint'>
-            Nombre: ${guess} ❌<br>
-            Posición: ${foundPlayer.position === mysteryPlayer.position ? '✅' : '❌'} (${foundPlayer.position})<br>
-            Edad: ${ageHint} (${foundPlayer.age})<br>
-            Dorsal: ${numberHint} (${foundPlayer.number})<br>
-            Nacionalidad: ${foundPlayer.nationality === mysteryPlayer.nationality ? '✅' : '❌'} (${foundPlayer.nationality})
-        </div>`;
+                    Nombre: ${guess} ❌<br>
+                    Posición: ${foundPlayer.position === mysteryPlayer.position ? '✅' : '❌'} (${foundPlayer.position})<br>
+                    Edad: ${ageHint} (${foundPlayer.age})<br>
+                    Dorsal: ${numberHint} (${foundPlayer.number})<br>
+                    Nacionalidad: ${foundPlayer.nationality === mysteryPlayer.nationality ? '✅' : '❌'} (${foundPlayer.nationality})
+                </div>`;
                 document.getElementById("hints").innerHTML += hints;
                 document.getElementById("player-image").style.filter = `blur(${20 - (4 - attempts) * 3}px)`;
             }
-
+        
             if (attempts === 0) {
                 document.getElementById("hints").innerHTML = `<h2>Se acabaron los intentos. El jugador era: ${mysteryPlayer.name}</h2>`;
                 document.getElementById("player-image").style.filter = "blur(0px)";
@@ -118,5 +127,6 @@
                 document.getElementById("new-game").disabled = false;
             }
         }
+        
 
         document.getElementById("new-game").onclick = startGame;
