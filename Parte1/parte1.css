@@ -228,9 +228,12 @@ h1 {
 }
 
 /*Tabla*/
-#playersTable tr.highlight-row {
-    background-color: yellow !important; /* Cambia el color de fondo a amarillo */
+#playersTable tr.highlight-row,
+#playersTable tr.highlight-row td,
+#playersTable tr.highlight-row th {
+    background-color: yellow !important;
 }
+
 
 .table-container {
     max-width: 80vw;

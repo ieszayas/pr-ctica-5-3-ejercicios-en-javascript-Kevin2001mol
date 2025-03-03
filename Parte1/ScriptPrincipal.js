@@ -78,12 +78,12 @@ document.getElementById('searchForm').addEventListener('submit', function (event
 
             // Comparación exacta del nombre
             if (playerName === searchQuery) {
-                console.log("Jugador encontrado: ", playerName); // Verificar si el jugador se encuentra
-                rows[i].classList.add('highlight-row'); // Resaltar la fila
-                rows[i].scrollIntoView({ behavior: 'smooth', block: 'center' }); // Desplazar hacia la fila encontrada
+                rows[i].classList.add('highlight-row'); // Resalta la fila
+                rows[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
                 found = true;
-                break; // Salir del bucle cuando se encuentra el jugador
+                break;
             }
+            
         } else {
             console.log(`Fila ${i} no tiene suficientes celdas.`);
         }
@@ -91,16 +91,17 @@ document.getElementById('searchForm').addEventListener('submit', function (event
 
     if (!found) {
         showToast('Jugador no encontrado.');
-    }
+    }    
 });
 
 function showToast(message) {
-    const toastElement = document.getElementById('playerNotFoundToast');
+    const toastElement = document.getElementById('toastLimpiar'); // Asegúrate de que este id coincida con el HTML
     const toastBody = toastElement.querySelector('.toast-body');
-    toastBody.textContent = message;
+    toastBody.textContent = message; // Actualiza el mensaje del toast
     const toast = new bootstrap.Toast(toastElement);
     toast.show();
 }
+
 
 // Accesibilidad
 
@@ -175,6 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
 // MY API
 // Hacer la solicitud a la API
 fetch('http://localhost:8080/api/jugadores') // Cambia la URL si es necesario
